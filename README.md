@@ -1,6 +1,6 @@
-# Leptos Todo App Sqlite with Axum
+# Leptos Website
 
-This example creates a basic todo app with an Axum backend that uses Leptos' server functions to call sqlx from the client and seamlessly run it on the server.
+A Repo for the public facing Leptos website. Still a WIP.
 
 ## Client Side Rendering
 This example cannot be built as a trunk standalone CSR-only app. Only the server may directly connect to the database.
