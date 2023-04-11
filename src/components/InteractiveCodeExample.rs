@@ -1,7 +1,7 @@
 use std::time::Duration;
 
 use super::CodeExample::{CodeExampleLayout, CodeExampleMode};
-use leptos::{*, leptos_dom::helpers::TimeoutHandle};
+use leptos::{leptos_dom::helpers::TimeoutHandle, *};
 
 #[component]
 pub fn InteractiveCodeExample(
@@ -10,7 +10,7 @@ pub fn InteractiveCodeExample(
     border: bool,
     background: String,
 ) -> impl IntoView {
-	let (is_active, set_is_active) = create_signal(cx, false);
+    let (is_active, set_is_active) = create_signal(cx, false);
 
     view! { cx,
         <CodeExampleLayout
@@ -29,21 +29,21 @@ pub fn InteractiveCodeExample(
 
 #[component]
 fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
-	let callback_class = move || if is_active() {
-		"bg-red"
-	} else {
-		""
-	};
-	let setter_class = move || if is_active() {
-		"bg-orange delay-100"
-	} else {
-		""
-	};
-	let getter_class = move || if is_active() {
-		"bg-yellow delay-200"
-	} else {
-		""
-	};
+    let callback_class = move || if is_active() { "bg-red" } else { "" };
+    let setter_class = move || {
+        if is_active() {
+            "bg-orange delay-100"
+        } else {
+            ""
+        }
+    };
+    let getter_class = move || {
+        if is_active() {
+            "bg-yellow delay-200"
+        } else {
+            ""
+        }
+    };
 
     view! { cx,
         <pre class="code-block-inner" data-lang="tsx">
@@ -125,34 +125,34 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
 
 #[component]
 fn ExampleComponent(cx: Scope, set_is_active: WriteSignal<bool>) -> impl IntoView {
-	let (count, set_count) = create_signal(cx, 0);
-	let timeout_handle = store_value(cx, None::<TimeoutHandle>);
+    let (count, set_count) = create_signal(cx, 0);
+    let timeout_handle = store_value(cx, None::<TimeoutHandle>);
 
     view! { cx,
         <div class="px-2 py-6 h-full w-full flex flex-col justify-center items-center ">
             <button
-				class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md border border-purple dark:border-eggshell"
-				on:click=move |_| {
-					set_count.update(|n| *n += 1);
-					set_is_active(true);
+                class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md border border-purple dark:border-eggshell"
+                on:click=move |_| {
+                    set_count.update(|n| *n += 1);
+                    set_is_active(true);
 
-					if let Some(handle) = timeout_handle.get_value() {
-						handle.clear();
-					}
-					timeout_handle.set_value(
-						set_timeout_with_handle(
-							move || {
-								set_is_active(false);
-							},
-							Duration::from_millis(500),
-						)
-						.ok(),
-					);
-				}
-			>
-				"Click me: "
-				{move || count()}
-			</button>
+                    if let Some(handle) = timeout_handle.get_value() {
+                        handle.clear();
+                    }
+                    timeout_handle.set_value(
+                        set_timeout_with_handle(
+                            move || {
+                                set_is_active(false);
+                            },
+                            Duration::from_millis(500),
+                        )
+                        .ok(),
+                    );
+                }
+            >
+                "Click me: "
+                {move || count()}
+            </button>
         </div>
     }
 }

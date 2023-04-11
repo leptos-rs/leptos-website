@@ -1,4 +1,4 @@
-use leptos::{*, html::Code};
+use leptos::{html::Code, *};
 
 use crate::pages::Home::perform_markdown_code_to_html;
 
@@ -31,7 +31,7 @@ pub fn CodeExample(
 #[derive(Clone)]
 pub enum CodeExampleMode {
     Html(Resource<bool, Result<String, ServerFnError>>),
-    View(View)
+    View(View),
 }
 
 #[component]
@@ -41,9 +41,9 @@ pub fn CodeExampleLayout(
     shadow: bool,
     border: bool,
     background: String,
-    children: Children
+    children: Children,
 ) -> impl IntoView {
-        let shadow_class = if shadow {
+    let shadow_class = if shadow {
         "shadow-[10px_10px_0px_#190E3825]"
     } else {
         ""
