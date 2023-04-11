@@ -8,7 +8,7 @@ pub async fn save_favorites(
     cx: Scope,
     favorite_cookie_type: String,
     favorite_color: String,
-) -> Result<Result<(), ServerFnError> {
+) -> Result<(), ServerFnError> {
     let pool = get_pool(cx)?;
 
     let query = "

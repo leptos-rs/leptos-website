@@ -986,32 +986,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "leptos-website"
-version = "0.1.0"
-dependencies = [
- "axum",
- "cfg-if",
- "console_error_panic_hook",
- "console_log",
- "femark",
- "futures",
- "http",
- "leptos",
- "leptos_axum",
- "leptos_meta",
- "leptos_router",
- "log",
- "serde",
- "simple_logger",
- "sqlx",
- "thiserror",
- "tokio",
- "tower",
- "tower-http",
- "wasm-bindgen",
-]
-
-[[package]]
 name = "leptos_axum"
 version = "0.2.5"
 source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
@@ -1190,6 +1164,32 @@ dependencies = [
  "serde",
  "server_fn",
  "thiserror",
+]
+
+[[package]]
+name = "leptos_website"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "cfg-if",
+ "console_error_panic_hook",
+ "console_log",
+ "femark",
+ "futures",
+ "http",
+ "leptos",
+ "leptos_axum",
+ "leptos_meta",
+ "leptos_router",
+ "log",
+ "serde",
+ "simple_logger",
+ "sqlx",
+ "thiserror",
+ "tokio",
+ "tower",
+ "tower-http",
+ "wasm-bindgen",
 ]
 
 [[package]]
