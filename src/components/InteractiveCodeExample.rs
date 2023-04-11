@@ -63,7 +63,7 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
             <i class="hh5">">"</i>" "
             <i class="hh15">"impl"</i>" "
             <i class="hh13">"IntoView"</i>" "
-            <i class="hh8">"{"</i>"\n  "
+            <i class="hh8">"{{"</i>"\n  "
             <i class="hh6">"let"</i>" "
             <i class="hh8">"("</i>
             <span class=getter_class><i class="hh17">"count"</i></span>
@@ -80,7 +80,7 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
             <i class="hh9">";"</i>"\n  "
             <i class="hh15">"view"</i>
             <i class="hh5">"!"</i>" "
-            <i class="hh8">"{"</i>" "
+            <i class="hh8">"{{"</i>" "
             <i class="hh17">"cx"</i>
             <i class="hh9">","</i>" \n    "
             <i class="hh5">"<"</i>
@@ -93,7 +93,7 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
             <i class="hh5">"|"</i>
             <i class="hh15">"_"</i>
             <i class="hh5">"|"</i>" "
-            <i class="hh8">"{"</i>" \n        "
+            <i class="hh8">"{{"</i>" \n        "
             <i class="hh17">"set_count"</i>
             <i class="hh9">"."</i>
             <span class=setter_class><i class="hh3">"update"</i></span>
@@ -107,18 +107,18 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
             "1"
             <i class="hh8">")"</i>
             <i class="hh9">";"</i>"\n      "
-            <i class="hh8">"}"</i>"\n    "
+            <i class="hh8">"}}"</i>"\n    "
             <i class="hh5">">"</i>"\n      "
             "\"Click me: \"""\n      "
-			<i class="hh8">"{"</i>
+            <i class="hh8">"{{"</i>
             <span class=getter_class><i class="hh17">"count"</i></span>
-			<i class="hh8">"}"</i>"\n    "
+            <i class="hh8">"}}"</i>"\n    "
             <i class="hh5">"<"</i>
             <i class="hh5">"/"</i>
             <i class="hh12">"button"</i>
             <i class="hh5">">"</i>"\n  "
-            <i class="hh8">"}"</i>"\n"
-            <i class="hh8">"}"</i>
+            <i class="hh8">"}}"</i>"\n"
+            <i class="hh8">"}}"</i>
         </pre>
     }
 }
