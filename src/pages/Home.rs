@@ -1,5 +1,5 @@
 use crate::components::CodeExample::*;
-use crate::components::ExampleComponent::*;
+use crate::components::InteractiveCodeExample::*;
 use crate::components::ExampleServerFunction::*;
 use crate::components::ExampleTailwind::*;
 use crate::components::HeroHeader::*;
@@ -29,11 +29,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     "Easily create and combine components to build websites and web-apps. You can even use Leptos to build UI for native applications."
                 </p>
                 <div class="mt-6">
-                    <Transition fallback=|| ()>
-                        <CodeExample code={EXAMPLE_COMPONENT_CODE.to_string()} shadow={true} border={true} background="bg-[#F3F4F6] dark:bg-black".to_string()>
-                            <ExampleComponent/>
-                        </CodeExample>
-                    </Transition>
+                    <InteractiveCodeExample shadow={true} border={true} background="bg-[#F3F4F6] dark:bg-black".to_string()/>
                 </div>
                 <p class="max-w-[70ch] mt-8 mb-16 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
                     "Leptos' extensive library of UI patterns allows you to design unique and intuitive user interfaces, while its compatibility with native applications ensures you can create a cohesive brand experience across platforms."

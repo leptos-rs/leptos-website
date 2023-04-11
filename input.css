@@ -153,6 +153,15 @@ pre i {
   perspective-origin: 50% 50%;
 }
 
+.bg-red {
+  background-color: red;
+}
+.bg-orange {
+  background-color: orange;
+}
+.bg-yellow {
+  background-color: yellow;
+}
 
 
 
