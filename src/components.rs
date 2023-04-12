@@ -14,3 +14,5 @@ pub mod InteractiveCodeExample;
 pub mod Page;
 #[allow(non_snake_case)]
 pub mod SphereLogo;
+#[allow(non_snake_case)]
+pub mod Checklist;

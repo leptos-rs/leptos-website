@@ -48,7 +48,7 @@ checksum = "0e97ce7de6cf12de5d7226c73f5ba9811622f4db3a5b91b55c53e987e5f91cba"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.14",
 ]
 
 [[package]]
@@ -59,7 +59,7 @@ checksum = "b9ccdd8f2a161be9bd5c023df56f1b2a0bd1d83872ae53b71a84a12c9bf6e842"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.14",
 ]
 
 [[package]]
@@ -118,9 +118,9 @@ checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
 name = "axum"
-version = "0.6.12"
+version = "0.6.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "349f8ccfd9221ee7d1f3d4b33e1f8319b3a81ed8f61f2ea40b37b859794b4491"
+checksum = "3b32c5ea3aabaf4deb5f5ced2d688ec0844c881c9e6c696a8b769a05fc691e62"
 dependencies = [
  "async-trait",
  "axum-core",
@@ -151,9 +151,9 @@ dependencies = [
 
 [[package]]
 name = "axum-core"
-version = "0.3.3"
+version = "0.3.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b2f958c80c248b34b9a877a643811be8dbca03ca5ba827f2b63baf3a81e5fc4e"
+checksum = "759fa577a247914fd3f7f76d62972792636412fbfd634cd452f6a385a74d2d2c"
 dependencies = [
  "async-trait",
  "bytes",
@@ -175,7 +175,7 @@ dependencies = [
  "heck",
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.14",
 ]
 
 [[package]]
@@ -420,7 +420,7 @@ checksum = "6b3d434edc6a4e8326087d0954b71fa7d7cc6752802b51127e0ca69b7c90b3f5"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.14",
 ]
 
 [[package]]
@@ -636,7 +636,7 @@ checksum = "89ca545a94061b6365f2c7355b4b32bd20df3ff95f02da9329b34ccc3bd6ee72"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.14",
 ]
 
 [[package]]
@@ -690,9 +690,9 @@ dependencies = [
 
 [[package]]
 name = "getrandom"
-version = "0.2.8"
+version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c05aeb6a22b8f62540c194aac980f2115af067bfe15a0734d7277a768d396b31"
+checksum = "c85e1d9ab2eadba7e5040d4e09cbd6d072b76a557ad64e797c2cb9d4da21d7e4"
 dependencies = [
  "cfg-if",
  "libc",
@@ -972,7 +972,7 @@ checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
 [[package]]
 name = "leptos"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "cfg-if",
  "leptos_config",
@@ -988,7 +988,7 @@ dependencies = [
 [[package]]
 name = "leptos_axum"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "axum",
  "futures",
@@ -1007,7 +1007,7 @@ dependencies = [
 [[package]]
 name = "leptos_config"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "config",
  "regex",
@@ -1019,7 +1019,7 @@ dependencies = [
 [[package]]
 name = "leptos_dom"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "async-recursion",
  "cfg-if",
@@ -1046,7 +1046,7 @@ dependencies = [
 [[package]]
 name = "leptos_hot_reload"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "anyhow",
  "camino",
@@ -1063,7 +1063,7 @@ dependencies = [
 [[package]]
 name = "leptos_integration_utils"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "futures",
  "leptos",
@@ -1075,7 +1075,7 @@ dependencies = [
 [[package]]
 name = "leptos_macro"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "attribute-derive",
  "cfg-if",
@@ -1096,7 +1096,7 @@ dependencies = [
 [[package]]
 name = "leptos_meta"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "cfg-if",
  "leptos",
@@ -1108,7 +1108,7 @@ dependencies = [
 [[package]]
 name = "leptos_reactive"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "base64 0.21.0",
  "cfg-if",
@@ -1132,7 +1132,7 @@ dependencies = [
 [[package]]
 name = "leptos_router"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "cfg-if",
  "common_macros",
@@ -1157,7 +1157,7 @@ dependencies = [
 [[package]]
 name = "leptos_server"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "lazy_static",
  "leptos_reactive",
@@ -1486,7 +1486,7 @@ dependencies = [
  "pest_meta",
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.14",
 ]
 
 [[package]]
@@ -1574,9 +1574,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro-utils"
-version = "0.5.1"
+version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "82d8be3a44b1f16d839703969bfffd7c866faf24591d2d614aa005280fd9108a"
+checksum = "5c5adb6033c8bd8006dd6c0b4d27f52eb22d490484ecf7c32fa7628e34b7e363"
 dependencies = [
  "proc-macro2",
  "smallvec",
@@ -1802,9 +1802,9 @@ checksum = "bebd363326d05ec3e2f532ab7660680f3b02130d780c299bca73469d521bc0ed"
 
 [[package]]
 name = "serde"
-version = "1.0.159"
+version = "1.0.160"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c04e8343c3daeec41f58990b9d77068df31209f2af111e059e9fe9646693065"
+checksum = "bb2f3770c8bce3bcda7e149193a069a0f4365bda1fa5cd88e03bca26afc1216c"
 dependencies = [
  "serde_derive",
 ]
@@ -1822,13 +1822,13 @@ dependencies = [
 
 [[package]]
 name = "serde_derive"
-version = "1.0.159"
+version = "1.0.160"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4c614d17805b093df4b147b51339e7e44bf05ef59fba1e45d83500bcfb4d8585"
+checksum = "291a097c63d8497e00160b166a967a4a79c64f3facdd01cbd7502231688d77df"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.14",
 ]
 
 [[package]]
@@ -1866,7 +1866,7 @@ dependencies = [
 [[package]]
 name = "server_fn"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "ciborium",
  "const_format",
@@ -1888,7 +1888,7 @@ dependencies = [
 [[package]]
 name = "server_fn_macro"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "const_format",
  "proc-macro-error",
@@ -1902,7 +1902,7 @@ dependencies = [
 [[package]]
 name = "server_fn_macro_default"
 version = "0.2.5"
-source = "git+https://github.com/leptos-rs/leptos#493c805993ff875007cfb4cb2d8c9e6c51c5bf65"
+source = "git+https://github.com/leptos-rs/leptos#274a1ac5f0be40b76a3337a9e0d3d8d50f6270d8"
 dependencies = [
  "server_fn_macro",
  "syn 1.0.109",
@@ -2120,9 +2120,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "2.0.13"
+version = "2.0.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4c9da457c5285ac1f936ebd076af6dac17a61cfe7826f2076b4d015cf47bc8ec"
+checksum = "fcf316d5356ed6847742d036f8a39c3b8435cac10bd528a4bd461928a6ab34d5"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2164,7 +2164,7 @@ checksum = "f9456a42c5b0d803c8cd86e73dd7cc9edd429499f37a3550d286d5e86720569f"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.14",
 ]
 
 [[package]]
@@ -2238,7 +2238,7 @@ checksum = "61a573bdc87985e9d6ddeed1b3d864e8a302c847e40d647746df2f1de209d1ce"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.13",
+ "syn 2.0.14",
 ]
 
 [[package]]
@@ -2613,9 +2613,9 @@ checksum = "5190c9442dcdaf0ddd50f37420417d219ae5261bbf5db120d0f9bab996c9cba1"
 
 [[package]]
 name = "uuid"
-version = "1.3.0"
+version = "1.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1674845326ee10d37ca60470760d4288a6f80f304007d92e5c53bab78c9cfd79"
+checksum = "5b55a3fef2a1e3b3a00ce878640918820d3c51081576ac657d23af9fc7928fdb"
 dependencies = [
  "getrandom",
 ]
