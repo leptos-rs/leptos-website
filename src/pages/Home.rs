@@ -1,3 +1,4 @@
+use crate::components::Checklist::*;
 use crate::components::CodeExample::*;
 use crate::components::ExampleServerFunction::*;
 use crate::components::ExampleTailwind::*;
@@ -19,10 +20,34 @@ pub async fn perform_markdown_code_to_html(markdown: String) -> Result<String, S
 
 #[component]
 pub fn Home(cx: Scope) -> impl IntoView {
+    let checklist_items: Vec<String> = vec![
+        String::from("Simple tooling with zero config"),
+        String::from("Works with Javascript disabled"),
+        String::from("Easily manage state without fighting the borrow checker"),
+        String::from("Write “server functions” that work across both the server and client"),
+        String::from("Amazing code completion across your whole application"),
+    ];
+
     view! { cx,
         <Title text="Home"/>
         <Page>
             <HeroHeader/>
+
+            <div class="mt-20 mb-8    px-4  max-w-[1920px] mx-auto flex flex-col gap-8 justify-center lg:flex-row md:gap-12">
+                <div class="w-full lg:max-w-[45ch]">
+                    <h2 class="font-bold text-2xl lg:text-4xl lg:max-w-[35ch] text-purple dark:text-eggshell">"Sustainable, maintainable, and engaging"</h2>
+                    <p class="mt-4 lg:mx-auto text-lg font-medium  text-purple dark:text-eggshell">
+                        "Experience the future of Rust web app development with a framework that keeps us - and you - excited to create exceptional digital experiences."
+                    </p>
+                    <p class="mt-4 lg:mx-auto text-purple dark:text-eggshell">
+                        "Building applications in the most loved language using a framework gives developers a joyful experience, making Leptos apps fun to build and best of all, easy to maintain and grow!"
+                    </p>
+                </div>
+                <div class="w-full lg:max-w-[45ch]">
+                    <Checklist items={checklist_items} />
+                </div>
+            </div>
+
             <div class="mt-12 mb-8    px-4  max-w-[1920px] mx-auto ">
                 <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">"Your favorite UI patterns"</h2>
                 <p class="max-w-[70ch] mt-4 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
