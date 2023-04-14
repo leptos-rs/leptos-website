@@ -16,3 +16,5 @@ pub mod Page;
 pub mod SphereLogo;
 #[allow(non_snake_case)]
 pub mod FeatureList;
+#[allow(non_snake_case)]
+pub mod SpeedStats;

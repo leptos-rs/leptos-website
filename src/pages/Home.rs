@@ -1,10 +1,11 @@
-use crate::components::FeatureList::*;
 use crate::components::CodeExample::*;
 use crate::components::ExampleServerFunction::*;
 use crate::components::ExampleTailwind::*;
+use crate::components::FeatureList::*;
 use crate::components::HeroHeader::*;
 use crate::components::InteractiveCodeExample::*;
 use crate::components::Page::*;
+use crate::components::SpeedStats::*;
 use leptos::*;
 use leptos_meta::*;
 
@@ -49,6 +50,16 @@ pub fn Home(cx: Scope) -> impl IntoView {
             </div>
 
             <div class="mt-12 mb-8    px-4  max-w-[1920px] mx-auto ">
+                <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">"High-performance"</h2>
+                <p class="max-w-[70ch] mt-4 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
+                    "Engineered for optimal performance, Leptos has earned its place among the top-performing frameworks."
+                </p>
+                <div class="mt-6">
+                    <SpeedStats shadow={true} border={true} />
+                </div>
+            </div>
+
+            <div class="mt-12 mb-8    px-4  max-w-[1920px] mx-auto ">
                 <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">"Your favorite UI patterns"</h2>
                 <p class="max-w-[70ch] mt-4 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
                     "Easily create and combine components to build websites and web-apps. You can even use Leptos to build UI for native applications."
@@ -60,6 +71,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     "Leptos' extensive library of UI patterns allows you to design unique and intuitive user interfaces, while its compatibility with native applications ensures you can create a cohesive brand experience across platforms."
                 </p>
             </div>
+
             <div class="my-8 lg:my-12  bg-gradient-to-tr from-red via-purple to-black px-4 py-12 max-w-[1920px] mx-auto  4xl:rounded-md bg-white 4xl:shadow-[10px_10px_0px_#190E3825] ">
                 <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-eggshell">"Your favorite language"</h2>
                 <p class="max-w-[70ch] mt-4  lg:mx-auto lg:text-center text-eggshell">
@@ -76,6 +88,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     "Leptos harnesses Rust's strong type safety, speed, and concurrency to deliver highly performant and reliable applications. Enjoy the best of both worlds with familiar UI patterns and the unparalleled performance of cutting-edge Rust technology."
                 </p>
             </div>
+
             <div class="mt-12 mb-8    px-4  max-w-[1920px] mx-auto ">
                 <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">"Your favorite tools"</h2>
                 <p class="max-w-[70ch] mt-4 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
