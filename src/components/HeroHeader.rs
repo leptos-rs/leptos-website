@@ -136,8 +136,8 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                             view! { cx,
                                 <>
                                     <div class="max-w-4xl mx-auto relative  ">
-                                        <div class="flex gap-12 justify-start xl:justify-between items-center pt-12 pb-24 md:py-24">
-                                            <div class="md:mt-[-60px] lg:mt-[-60px]">
+                                        <div class="flex gap-12 justify-start xl:justify-between items-center pt-12 pb-12 sm:pb-24 md:py-24">
+                                            <div class="md:mt-[-70px] lg:mt-[-60px]">
                                                 <h1 class="font-bold text-4xl lg:text-5xl tracking-tight">"Full stack, fully typed."</h1>
                                                 <p class="mt-2 opacity-90 max-w-[40ch] ">"Leptos is a cutting-edge Rust web framework"</p>
                                                 <div class="mt-4 flex gap-3">

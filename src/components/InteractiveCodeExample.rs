@@ -29,17 +29,23 @@ pub fn InteractiveCodeExample(
 
 #[component]
 fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
-    let callback_class = move || if is_active() { "bg-red" } else { "" };
+    let callback_class = move || {
+        if is_active() {
+            "alex-special"
+        } else {
+            ""
+        }
+    };
     let setter_class = move || {
         if is_active() {
-            "bg-orange delay-100"
+            "alex-special-1"
         } else {
             ""
         }
     };
     let getter_class = move || {
         if is_active() {
-            "bg-yellow delay-200"
+            "alex-special-2"
         } else {
             ""
         }
@@ -110,9 +116,9 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
             <i class="hh8">"}"</i>"\n    "
             <i class="hh5">">"</i>"\n      "
             "\"Click me: \"""\n      "
-			<i class="hh8">"{"</i>
+            <i class="hh8">"{"</i>
             <span class=getter_class><i class="hh17">"count"</i></span>
-			<i class="hh8">"}"</i>"\n    "
+            <i class="hh8">"}"</i>"\n    "
             <i class="hh5">"<"</i>
             <i class="hh5">"/"</i>
             <i class="hh12">"button"</i>
@@ -144,7 +150,7 @@ fn ExampleComponent(cx: Scope, set_is_active: WriteSignal<bool>) -> impl IntoVie
                             move || {
                                 set_is_active(false);
                             },
-                            Duration::from_millis(500),
+                            Duration::from_millis(1500),
                         )
                         .ok(),
                     );
