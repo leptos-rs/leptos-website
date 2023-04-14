@@ -1,4 +1,4 @@
-use crate::components::Checklist::*;
+use crate::components::FeatureList::*;
 use crate::components::CodeExample::*;
 use crate::components::ExampleServerFunction::*;
 use crate::components::ExampleTailwind::*;
@@ -20,7 +20,7 @@ pub async fn perform_markdown_code_to_html(markdown: String) -> Result<String, S
 
 #[component]
 pub fn Home(cx: Scope) -> impl IntoView {
-    let checklist_items: Vec<String> = vec![
+    let feature_list_items: Vec<String> = vec![
         String::from("Simple tooling with zero config"),
         String::from("Works with Javascript disabled"),
         String::from("Easily manage state without fighting the borrow checker"),
@@ -44,7 +44,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     </p>
                 </div>
                 <div class="w-full lg:max-w-[45ch]">
-                    <Checklist items={checklist_items} />
+                    <FeatureList items={feature_list_items} />
                 </div>
             </div>
 

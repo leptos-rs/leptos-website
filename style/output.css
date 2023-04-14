@@ -687,6 +687,10 @@ video {
   width: 100%;
 }
 
+.w-\[56px\] {
+  width: 56px;
+}
+
 .max-w-4xl {
   max-width: 56rem;
 }
@@ -954,6 +958,14 @@ video {
 
 .bg-no-repeat {
   background-repeat: no-repeat;
+}
+
+.fill-purple {
+  fill: #181139;
+}
+
+.stroke-purple {
+  stroke: #181139;
 }
 
 .object-contain {
@@ -1470,6 +1482,14 @@ pre i {
 :is(.dark .dark\:bg-black) {
   --tw-bg-opacity: 1;
   background-color: rgb(15 25 28 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:fill-eggshell) {
+  fill: #F1FAEE;
+}
+
+:is(.dark .dark\:stroke-eggshell) {
+  stroke: #F1FAEE;
 }
 
 :is(.dark .dark\:text-eggshell) {
