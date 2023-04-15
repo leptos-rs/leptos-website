@@ -129,6 +129,9 @@ fn ExampleComponent(cx: Scope, set_is_active: WriteSignal<bool>) -> impl IntoVie
     let timeout_handle = store_value(cx, None::<TimeoutHandle>);
 
     view! { cx,
+        <noscript class="block text-center bg-beige font-mono text-xs p-2">
+            "This interactive example isn’t going to work without JavaScript, sorry."
+        </noscript>
         <div class="px-2 py-6 h-full w-full flex flex-col justify-center items-center ">
             <button
                 class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md border border-purple dark:border-eggshell"
