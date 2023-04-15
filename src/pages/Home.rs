@@ -22,11 +22,11 @@ pub async fn perform_markdown_code_to_html(markdown: String) -> Result<String, S
 #[component]
 pub fn Home(cx: Scope) -> impl IntoView {
     let feature_list_items: Vec<String> = vec![
-        String::from("Simple tooling with zero config"),
-        String::from("Works with Javascript disabled"),
-        String::from("Easily manage state without fighting the borrow checker"),
+        String::from("Easily manage state without fighting the borrow checker with reactive signals."),
         String::from("Write “server functions” that work across both the server and client"),
-        String::from("Amazing code completion across your whole application"),
+        String::from("Create full-stack apps that start working immediately and are progressively enhance with client-side interactivity."),
+        String::from("Start projects fast using simple tooling with minimal configuration."),
+        String::from("Sleep well knowing Rust’s type safety is protecting your whole app."),
     ];
 
     view! { cx,
@@ -39,10 +39,10 @@ pub fn Home(cx: Scope) -> impl IntoView {
                         "Sustainable, maintainable, and engaging"
                     </h2>
                     <p class="mt-4 lg:mx-auto text-lg font-medium  text-purple dark:text-eggshell">
-                        "Experience the future of Rust web app development with a framework that keeps us - and you - excited to create exceptional digital experiences."
+                        "Experience the future of Rust web development with a framework that keeps you excited to create exceptional digital experiences."
                     </p>
                     <p class="mt-4 lg:mx-auto text-purple dark:text-eggshell">
-                        "Building applications in the most loved language using a framework gives developers a joyful experience, making Leptos apps fun to build and best of all, easy to maintain and grow!"
+                        "Leptos makes it easy to build applications in the most-loved programming language, combining the best paradigms of modern web development with the power of Rust."
                     </p>
                 </div>
                 <div class="w-full lg:max-w-[45ch]">
@@ -54,7 +54,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     "High-performance"
                 </h2>
                 <p class="max-w-[70ch] mt-4 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
-                    "Engineered for optimal performance, Leptos has earned its place among the top-performing frameworks."
+                    "Engineered for optimal performance, Leptos has earned its place among the top-performing frontend frameworks."
                 </p>
                 <div class="mt-6">
                     <SpeedStats shadow=true border=true/>
@@ -65,7 +65,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     "Your favorite UI patterns"
                 </h2>
                 <p class="max-w-[70ch] mt-4 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
-                    "Easily create and combine components to build websites and web-apps. You can even use Leptos to build UI for native applications."
+                    "Build websites and apps from self-contained components with reactive state management that’s easy to use."
                 </p>
                 <div class="mt-6">
                     <InteractiveCodeExample
@@ -75,7 +75,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     />
                 </div>
                 <p class="max-w-[70ch] mt-8 mb-16 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
-                    "Leptos' extensive library of UI patterns allows you to design unique and intuitive user interfaces, while its compatibility with native applications ensures you can create a cohesive brand experience across platforms."
+                    "Leptos’s fine-grained reactive signals make targeted updates to the DOM when you make changes to your component’s state, keeping your app responsive to user input."
                 </p>
             </div>
             <div class="my-8 lg:my-12  bg-gradient-to-tr from-red via-purple to-black px-4 py-12 max-w-[1920px] mx-auto  4xl:rounded-md bg-white 4xl:shadow-[10px_10px_0px_#190E3825] ">
@@ -83,7 +83,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     "Your favorite language"
                 </h2>
                 <p class="max-w-[70ch] mt-4  lg:mx-auto lg:text-center text-eggshell">
-                    "Leptos uses Rust's powerful macros to reduce boiler-plate, so you can focus on what matters. In this example, an isometric server function is generated for both the server and the client in one fell swoop."
+                    "Leptos makes it easy to integrate Rust backend code with your user interface in a few lines of code. " <code>"#[server]"</code> " functions let you cross the client-server boundary without the boilerplate of setting up a new API endpoint, making it easy to create “full-stack components” that let you write everything from a SQL query to a button click in one place."
                 </p>
                 <div class="mt-6">
                     <Transition fallback=|| ()>

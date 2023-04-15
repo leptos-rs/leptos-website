@@ -150,7 +150,7 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                                     "Full stack, fully typed."
                                                 </h1>
                                                 <p class="mt-2 opacity-90 max-w-[40ch] ">
-                                                    "Leptos is a cutting-edge Rust web framework"
+                                                    "A cutting-edge Rust framework for the modern web."
                                                 </p>
                                                 <div class="mt-4 flex gap-3">
                                                     <a
