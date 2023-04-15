@@ -16,8 +16,8 @@ pub fn provide_dark_mode_context(cx: Scope) {
     provide_context(
         cx,
         DarkModeContext {
-            dark_mode: dark_mode.into(),
-            set_dark_mode: set_dark_mode.into(),
+            dark_mode,
+            set_dark_mode
         },
     );
 }

@@ -1,5 +1,3 @@
-use std::time::Duration;
-
 use leptos::*;
 
 pub const EXAMPLE_SERVER_FUNCTION_CODE: &str = r#"```rust

@@ -1,4 +1,4 @@
-use leptos::{html::Code, *};
+use leptos::*;
 
 use crate::pages::Home::perform_markdown_code_to_html;
 

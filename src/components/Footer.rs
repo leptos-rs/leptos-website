@@ -1,6 +1,6 @@
 use leptos::*;
 
 #[component]
-pub fn Footer(cx: Scope) -> impl IntoView {
+pub fn Footer(_cx: Scope) -> impl IntoView {
     view! { cx, <></> }
 }
