@@ -17,7 +17,7 @@ pub fn provide_dark_mode_context(cx: Scope) {
         cx,
         DarkModeContext {
             dark_mode,
-            set_dark_mode
+            set_dark_mode,
         },
     );
 }
@@ -32,7 +32,10 @@ pub fn App(cx: Scope) -> impl IntoView {
     view! { cx,
         <Stylesheet id="leptos" href="/pkg/leptos_website.css"/>
         <Title formatter/>
-        <Meta name="description" content="Leptos is a cutting-edge Rust web framework designed for building fast, reliable, web applications."/>
+        <Meta
+            name="description"
+            content="Leptos is a cutting-edge Rust web framework designed for building fast, reliable, web applications."
+        />
         <Router>
             <Routes>
                 <Route

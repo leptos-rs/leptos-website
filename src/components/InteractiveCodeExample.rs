@@ -50,74 +50,115 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
             "#"
             <i class="hh8">"["</i>
             <i class="hh15">"component"</i>
-            <i class="hh8">"]"</i>"\n"
-            <i class="hh15">"pub"</i>" "
-            <i class="hh15">"fn"</i>" "
+            <i class="hh8">"]"</i>
+            "\n"
+            <i class="hh15">"pub"</i>
+            " "
+            <i class="hh15">"fn"</i>
+            " "
             <i class="hh13">"Button"</i>
             <i class="hh8">"("</i>
             <i class="hh15">"cx"</i>
             ": "
             <i class="hh13">"Scope"</i>
-            <i class="hh8">")"</i>" "
+            <i class="hh8">")"</i>
+            " "
             <i class="hh5">"-"</i>
-            <i class="hh5">">"</i>" "
-            <i class="hh15">"impl"</i>" "
-            <i class="hh13">"IntoView"</i>" "
-            <i class="hh8">"{"</i>"\n  "
-            <i class="hh6">"let"</i>" "
+            <i class="hh5">">"</i>
+            " "
+            <i class="hh15">"impl"</i>
+            " "
+            <i class="hh13">"IntoView"</i>
+            " "
+            <i class="hh8">"{"</i>
+            "\n  "
+            <i class="hh6">"let"</i>
+            " "
             <i class="hh8">"("</i>
-            <span class=getter_class><i class="hh17">"count"</i></span>
-            <i class="hh9">","</i>" "
-            <span class=setter_class><i class="hh17">"set_count"</i></span>
-            <i class="hh8">")"</i>" "
-            <i class="hh5">"="</i>" "
+            <span class=getter_class>
+                <i class="hh17">"count"</i>
+            </span>
+            <i class="hh9">","</i>
+            " "
+            <span class=setter_class>
+                <i class="hh17">"set_count"</i>
+            </span>
+            <i class="hh8">")"</i>
+            " "
+            <i class="hh5">"="</i>
+            " "
             <i class="hh6">"create_signal"</i>
             <i class="hh8">"("</i>
             <i class="hh17">"cx"</i>
-            <i class="hh9">","</i>" "
+            <i class="hh9">","</i>
+            " "
             "0"
             <i class="hh8">")"</i>
-            <i class="hh9">";"</i>"\n  "
+            <i class="hh9">";"</i>
+            "\n  "
             <i class="hh15">"view"</i>
-            <i class="hh5">"!"</i>" "
-            <i class="hh8">"{"</i>" "
+            <i class="hh5">"!"</i>
+            " "
+            <i class="hh8">"{"</i>
+            " "
             <i class="hh17">"cx"</i>
-            <i class="hh9">","</i>" \n    "
+            <i class="hh9">","</i>
+            " \n    "
             <i class="hh5">"<"</i>
-            <i class="hh12">"button"</i>" "
+            <i class="hh12">"button"</i>
+            " "
             <i class="hh15">"on"</i>
             ":"
-            <span class=callback_class><i class="hh15">"click"</i></span>
+            <span class=callback_class>
+                <i class="hh15">"click"</i>
+            </span>
             <i class="hh5">"="</i>
-            <i class="hh15">"move"</i>" "
+            <i class="hh15">"move"</i>
+            " "
             <i class="hh5">"|"</i>
             <i class="hh15">"_"</i>
-            <i class="hh5">"|"</i>" "
-            <i class="hh8">"{"</i>" \n        "
+            <i class="hh5">"|"</i>
+            " "
+            <i class="hh8">"{"</i>
+            " \n        "
             <i class="hh17">"set_count"</i>
             <i class="hh9">"."</i>
-            <span class=setter_class><i class="hh3">"update"</i></span>
+            <span class=setter_class>
+                <i class="hh3">"update"</i>
+            </span>
             <i class="hh8">"("</i>
             <i class="hh5">"|"</i>
             <i class="hh15">"n"</i>
-            <i class="hh5">"|"</i>" "
+            <i class="hh5">"|"</i>
+            " "
             <i class="hh5">"*"</i>
-            <i class="hh15">"n"</i>" "
-            <i class="hh5">"+="</i>" "
+            <i class="hh15">"n"</i>
+            " "
+            <i class="hh5">"+="</i>
+            " "
             "1"
             <i class="hh8">")"</i>
-            <i class="hh9">";"</i>"\n      "
-            <i class="hh8">"}"</i>"\n    "
-            <i class="hh5">">"</i>"\n      "
-            "\"Click me: \"""\n      "
-			<i class="hh8">"{"</i>
-            <span class=getter_class><i class="hh17">"count"</i></span>
-			<i class="hh8">"}"</i>"\n    "
+            <i class="hh9">";"</i>
+            "\n      "
+            <i class="hh8">"}"</i>
+            "\n    "
+            <i class="hh5">">"</i>
+            "\n      "
+            "\"Click me: \""
+            "\n      "
+            <i class="hh8">"{"</i>
+            <span class=getter_class>
+                <i class="hh17">"count"</i>
+            </span>
+            <i class="hh8">"}"</i>
+            "\n    "
             <i class="hh5">"<"</i>
             <i class="hh5">"/"</i>
             <i class="hh12">"button"</i>
-            <i class="hh5">">"</i>"\n  "
-            <i class="hh8">"}"</i>"\n"
+            <i class="hh5">">"</i>
+            "\n  "
+            <i class="hh8">"}"</i>
+            "\n"
             <i class="hh8">"}"</i>
         </pre>
     }
@@ -138,19 +179,19 @@ fn ExampleComponent(cx: Scope, set_is_active: WriteSignal<bool>) -> impl IntoVie
                 on:click=move |_| {
                     set_count.update(|n| *n += 1);
                     set_is_active(true);
-
                     if let Some(handle) = timeout_handle.get_value() {
                         handle.clear();
                     }
-                    timeout_handle.set_value(
-                        set_timeout_with_handle(
-                            move || {
-                                set_is_active(false);
-                            },
-                            Duration::from_millis(500),
-                        )
-                        .ok(),
-                    );
+                    timeout_handle
+                        .set_value(
+                            set_timeout_with_handle(
+                                    move || {
+                                        set_is_active(false);
+                                    },
+                                    Duration::from_millis(500),
+                                )
+                                .ok(),
+                        );
                 }
             >
                 "Click me: "

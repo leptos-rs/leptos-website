@@ -23,8 +23,7 @@ pub fn PercentageBar(
 
     let primary_class = if primary { "text-bold" } else { "" };
 
-    view! {
-        cx,
+    view! { cx,
         <div class="text-eggshell flex flex-col lg:items-center lg:flex-row">
             <div class="lg:w-[5rem] mb-2 lg:hidden text-xl flex lg:justify-end lg:px-4">
                 {tech_name}
@@ -35,9 +34,12 @@ pub fn PercentageBar(
             >
                 <div
                     style=format!("width: {}%; outline-color: {}; {}", percentage, color, primary_style)
-                    class=format!("h-full absolute top-0 left-0 rounded-md outline-4 outline flex items-center justify-end px-2 {}", primary_class)
+                    class=format!(
+                        "h-full absolute top-0 left-0 rounded-md outline-4 outline flex items-center justify-end px-2 {}",
+                        primary_class
+                    )
                 >
-                <span class="relative z-[2]">{percentage}"%"</span>
+                    <span class="relative z-[2]">{percentage} "%"</span>
                 </div>
             </div>
         </div>
@@ -52,10 +54,9 @@ pub fn Label(
 ) -> impl IntoView {
     let bold_class = if primary { "font-bold" } else { "" };
 
-    view! {
-        cx,
+    view! { cx,
         <div class="text-purple flex flex-col lg:items-center lg:flex-row dark:text-eggshell">
-            <div class="w-full h-10 mb-4 lg:my-3 relative" />
+            <div class="w-full h-10 mb-4 lg:my-3 relative"></div>
             <div class=format!("lg:w-[5rem] text-xl flex lg:justify-end lg:px-4 {}", bold_class)>
                 {tech_name}
             </div>
@@ -108,32 +109,37 @@ pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
 
     view! { cx,
         <div class="flex max-w-4xl mx-auto lg:px-4">
-            <div class=format!(
-                "hidden lg:block h-full pr-2 py-4 mx-auto",
-            )>
-                {labels.iter()
-                    .map(|row| view! {
-                        cx,
-                        <Label tech_name={row.name.clone()} primary={row.primary} />
-                    }).collect::<Vec<_>>()
-                }
+            <div class=format!("hidden lg:block h-full pr-2 py-4 mx-auto",)>
+                {labels
+                    .iter()
+                    .map(|row| {
+                        view! { cx, <Label tech_name=row.name.clone() primary=row.primary/> }
+                    })
+                    .collect::<Vec<_>>()}
             </div>
             <div class=format!(
                 "w-full h-full px-4 py-4 bg-gradient-to-tr from-[#181139] to-[#324571] rounded-md mx-auto {} {}",
                 shadow_class, border_class
             )>
-                {labels.iter()
-                    .map(|row| view! {
-                        cx,
-                        <PercentageBar
-                            tech_name={row.name.clone()}
-                            color={row.color.clone()}
-                            primary={row.primary}
-                            percentage={row.percentage} />
+                {labels
+                    .iter()
+                    .map(|row| {
+                        view! { cx,
+                            <PercentageBar
+                                tech_name=row.name.clone()
+                                color=row.color.clone()
+                                primary=row.primary
+                                percentage=row.percentage
+                            />
+                        }
                     })
-                    .collect::<Vec<_>>()
-                }
-                <p class="text-[#F2F8FA70] mt-4">"Source: "<a href="https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html">"https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html"</a></p>
+                    .collect::<Vec<_>>()}
+                <p class="text-[#F2F8FA70] mt-4">
+                    "Source: "
+                    <a href="https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html">
+                        "https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html"
+                    </a>
+                </p>
             </div>
         </div>
     }

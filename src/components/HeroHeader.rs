@@ -26,7 +26,11 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                     <>
                                         <div class="hidden lg:block">
                                             <div class="flex gap-1 xl:gap-4 justify-center items-center">
-                                                <A href="/" exact=true class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md ">
+                                                <A
+                                                    href="/"
+                                                    exact=true
+                                                    class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
+                                                >
                                                     "Home"
                                                 </A>
                                                 <a
@@ -67,23 +71,23 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                 <button on:click=move |_| set_dark_mode.update(|n| *n = !*n)>
                                     <img
                                         class=" h-6 w-6 block"
-                                        src={{
+                                        src={
                                             move || match dark_mode() {
                                                 true => "/images/sun.svg",
                                                 false => "/images/moon.svg",
                                             }
-                                        }}
+                                        }
                                     />
                                 </button>
                                 <button on:click=move |_| set_hamburger_menu_open.update(|n| *n = !*n)>
                                     <img
                                         class=" h-6 w-6 block lg:hidden"
-                                        src={{
+                                        src={
                                             move || match hamburger_menu_open() {
                                                 true => "/images/x_close.svg",
                                                 false => "/images/mobile_menu.svg",
                                             }
-                                        }}
+                                        }
                                     />
                                 </button>
                             </div>
@@ -95,7 +99,11 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                 <>
                                     <div class="max-w-4xl mx-auto mt-8 pb-16 lg:hidden">
                                         <div class="flex flex-col gap-2 ">
-                                            <A href="/" exact=true class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md ">
+                                            <A
+                                                href="/"
+                                                exact=true
+                                                class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
+                                            >
                                                 "Home"
                                             </A>
                                             <a
@@ -138,8 +146,12 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                     <div class="max-w-4xl mx-auto relative  ">
                                         <div class="flex gap-12 justify-start xl:justify-between items-center pt-12 pb-24 md:py-24">
                                             <div class="md:mt-[-60px] lg:mt-[-60px]">
-                                                <h1 class="font-bold text-4xl lg:text-5xl tracking-tight">"Full stack, fully typed."</h1>
-                                                <p class="mt-2 opacity-90 max-w-[40ch] ">"Leptos is a cutting-edge Rust web framework"</p>
+                                                <h1 class="font-bold text-4xl lg:text-5xl tracking-tight">
+                                                    "Full stack, fully typed."
+                                                </h1>
+                                                <p class="mt-2 opacity-90 max-w-[40ch] ">
+                                                    "Leptos is a cutting-edge Rust web framework"
+                                                </p>
                                                 <div class="mt-4 flex gap-3">
                                                     <a
                                                         href="https://www.youtube.com/watch?v=AD3FHodVgE8"

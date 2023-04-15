@@ -49,7 +49,10 @@ pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
             <div class="my-4">
                 <div class="flex flex-col gap-4">
                     <div>
-                        <label htmlfor="favorite_cookie_type" class="block text-sm font-bold text-black dark:text-eggshell ">
+                        <label
+                            htmlfor="favorite_cookie_type"
+                            class="block text-sm font-bold text-black dark:text-eggshell "
+                        >
                             "Favorite type of cookie"
                         </label>
                         <div class="mt-1">
@@ -63,7 +66,10 @@ pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
                         </div>
                     </div>
                     <div>
-                        <label htmlfor="favorite_color" class="block text-sm font-bold text-black dark:text-eggshell">
+                        <label
+                            htmlfor="favorite_color"
+                            class="block text-sm font-bold text-black dark:text-eggshell"
+                        >
                             "Favorite color"
                         </label>
                         <div class="mt-1">
