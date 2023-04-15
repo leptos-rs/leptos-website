@@ -25,6 +25,30 @@ pub async fn save_favorites(
 
     Ok(())
 }
+
+#[component]
+pub fn FavoritesForm(cx: Scope) -> impl IntoView {
+    let favorites = create_server_action::<SaveFavorites>(cx);
+    view! { cx, 
+        <ActionForm action=favorites>
+            <label>
+                "Favorite type of cookie"
+                <input
+                    type="text"
+                    name="favorite_cookie_type"
+                />
+            </label>
+            <label>
+                "Favorite color"
+                <input
+                    type="text"
+                    name="favorite_color"
+                />
+            </label>
+            <input type="submit"/>
+        </ActionForm>
+    }
+}
 ```"#;
 
 #[component]
@@ -50,7 +74,7 @@ pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
                 <div class="flex flex-col gap-4">
                     <div>
                         <label
-                            htmlfor="favorite_cookie_type"
+                            for="favorite_cookie_type"
                             class="block text-sm font-bold text-black dark:text-eggshell "
                         >
                             "Favorite type of cookie"
@@ -67,7 +91,7 @@ pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
                     </div>
                     <div>
                         <label
-                            htmlfor="favorite_color"
+                            for="favorite_color"
                             class="block text-sm font-bold text-black dark:text-eggshell"
                         >
                             "Favorite color"
