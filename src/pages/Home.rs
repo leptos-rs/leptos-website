@@ -2,6 +2,7 @@ use crate::components::CodeExample::*;
 use crate::components::ExampleServerFunction::*;
 use crate::components::ExampleTailwind::*;
 use crate::components::FeatureList::*;
+use crate::components::GettingStartedSquare::*;
 use crate::components::HeroHeader::*;
 use crate::components::InteractiveCodeExample::*;
 use crate::components::Page::*;
@@ -104,13 +105,71 @@ pub fn Home(cx: Scope) -> impl IntoView {
                 <p class="max-w-[70ch] mt-8 mb-12 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
                     "Boost your productivity with the dedicated VSCode code formatting extension, designed to streamline your Leptos coding experience and maintain a consistent code style throughout your project. Maximize your efficiency and build stunning projects that stand out with Leptos as your trusted partner in web development."
                 </p>
-                <div class="w-full flex justify-center pb-16">
-                    <a
-                        href="https://leptos-rs.github.io/leptos/"
-                        class="font-semibold text-eggshell text-2xl px-8 py-5  bg-gradient-to-r from-dark_blue to-purple rounded-md shadow-[3px_3px_0px_#0d0b29] hover:saturate-200 transition-all"
-                    >
-                        "Get Started"
-                    </a>
+            </div>
+
+            <div id="getting-started" class="mt-12 mb-8 px-4 max-w-[1920px] mx-auto">
+                <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">"Getting started"</h2>
+                <div id="ssr-commands" class="mt-6 max-w-[70ch] mx-auto">
+                    <h3 class="mt-4 lg:mx-auto text-xl font-medium  text-purple dark:text-eggshell">
+                        "Want Server Side Rendering (SSR)?"
+                    </h3>
+                    <p class="max-w-[70ch] lg:mx-auto text-purple dark:text-eggshell">
+                        "cargo-leptos is a build tool that's designed to make it easy to build apps that run on both the client and the server, with seamless integration."
+                    </p>
+                    <div class="my-2 bg-black dark:bg-purple w-full text-eggshell rounded-md p-3 overflow-scroll">
+                        <pre class="text-[14px] lg:text-[16px]">
+                            <p>"cargo install cargo-leptos"</p>
+                            <p>"cargo leptos new --git https://github.com/leptos-rs/start"</p>
+                            <p>"cd [your project name]"</p>
+                            <p>"cargo leptos watch"</p>
+                        </pre>
+                    </div>
+                    <p class="max-w-[70ch] lg:mx-auto text-purple dark:text-eggshell">
+                        "Now open http://localhost:8000 in your browser to view the page."
+                    </p>
+                </div>
+                <div id="csr-commands" class="mt-6 max-w-[70ch] mx-auto">
+                    <h3 class="mt-4 lg:mx-auto text-xl font-medium  text-purple dark:text-eggshell">
+                        "Want Client Side Rendering (CSR)?"
+                    </h3>
+                    <p class="max-w-[70ch] lg:mx-auto text-purple dark:text-eggshell">
+                        "Trunk is a WASM web application bundler for Rust."
+                    </p>
+                    <div class="my-2 bg-black dark:bg-purple w-full text-eggshell rounded-md p-3 overflow-scroll">
+                        <pre class="text-[14px] lg:text-[16px]">
+                            <p>"cargo install trunk"</p>
+                            <p>"cargo init leptos-tutorial"</p>
+                            <p>"cargo add leptos"</p>
+                            <p>"cd [your project name]"</p>
+                            <p>"trunk serve --open"</p>
+                        </pre>
+                    </div>
+                    <p class="max-w-[70ch] lg:mx-auto text-purple dark:text-eggshell">
+                        "Now open http://localhost:8000 in your browser to view the page."
+                    </p>
+                </div>
+                <div class="mt-12 max-w-4xl mx-auto grid gap-4 lg:grid-cols-3 grid-rows-1">
+                    <GettingStartedSquare 
+                        tag={String::from("Documentation")} 
+                        title={String::from("Read the Documentation")}
+                        body={String::from("View the official Leptos documentation")}
+                        link={String::from("https://docs.rs/leptos/latest/leptos/")}
+                        background_class={String::from("bg-gradient-to-tr from-[#EF3939] to-[#471069]")}
+                    />
+                    <GettingStartedSquare 
+                        tag={String::from("Getting started")} 
+                        title={String::from("Read the Introductory Guide")}
+                        body={String::from("A beginner friendly guide to everything Leptos")}
+                        link={String::from("https://leptos-rs.github.io/leptos/")}
+                        background_class={String::from("bg-gradient-to-tl from-[#94D9DC] to-[#627AF7]")}
+                    />
+                    <GettingStartedSquare 
+                        tag={String::from("Video series")} 
+                        title={String::from("Watch the Video Series")}
+                        body={String::from("Watch a video series by the creator of Leptos")}
+                        link={String::from("https://youtube.com/playlist?list=PLg4xWRFolJIo0lZawIlEaYr180e1w-ZUH")}
+                        background_class={String::from("bg-gradient-to-tr from-[#CDD698] to-[#5A986D]")}
+                    />
                 </div>
             </div>
         </Page>
