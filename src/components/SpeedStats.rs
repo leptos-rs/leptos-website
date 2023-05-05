@@ -137,7 +137,7 @@ pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
                 <p class="text-[#F2F8FA70] mt-4">
                     "Source: "
                     <a href="https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html">
-                        "https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html"
+                        <code>"js-framework-benchmark"</code> " official results for Chrome 112."
                     </a>
                 </p>
             </div>
