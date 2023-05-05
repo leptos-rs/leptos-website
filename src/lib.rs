@@ -1,5 +1,4 @@
 use cfg_if::cfg_if;
-use leptos::*;
 pub mod app;
 pub mod components;
 pub mod error_template;
@@ -7,9 +6,10 @@ pub mod errors;
 pub mod fallback;
 pub mod pages;
 
-// Needs to be in lib.rs AFAIK because wasm-bindgen needs us to be compiling a lib. I may be wrong.
 cfg_if! {
     if #[cfg(feature = "hydrate")] {
+        use leptos::*;
+
         use wasm_bindgen::prelude::wasm_bindgen;
         use crate::app::*;
 

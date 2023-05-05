@@ -1,4 +1,3 @@
-use crate::pages::About::*;
 use crate::pages::Home::*;
 use leptos::*;
 use leptos_meta::*;
@@ -16,8 +15,8 @@ pub fn provide_dark_mode_context(cx: Scope) {
     provide_context(
         cx,
         DarkModeContext {
-            dark_mode: dark_mode.into(),
-            set_dark_mode: set_dark_mode.into(),
+            dark_mode,
+            set_dark_mode,
         },
     );
 }
@@ -30,9 +29,13 @@ pub fn App(cx: Scope) -> impl IntoView {
     provide_dark_mode_context(cx);
 
     view! { cx,
+        <Html lang="en"/>
         <Stylesheet id="leptos" href="/pkg/leptos_website.css"/>
         <Title formatter/>
-        <Meta name="description" content="Leptos is a cutting-edge Rust web framework designed for building fast, reliable, web applications."/>
+        <Meta
+            name="description"
+            content="Leptos is a cutting-edge Rust web framework designed for building fast, reliable, web applications."
+        />
         <Router>
             <Routes>
                 <Route
@@ -40,12 +43,7 @@ pub fn App(cx: Scope) -> impl IntoView {
                     view=|cx| {
                         view! { cx, <Home/> }
                     }
-                />
-                <Route
-                    path="/about"
-                    view=|cx| {
-                        view! { cx, <About/> }
-                    }
+                    ssr=SsrMode::Async
                 />
             </Routes>
         </Router>

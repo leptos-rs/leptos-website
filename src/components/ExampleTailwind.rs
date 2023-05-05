@@ -40,10 +40,17 @@ pub fn ExampleTailwind(cx: Scope) -> impl IntoView {
             <div class="my-4">
                 <div class="cursor-not-allowed">
                     <div class="max-w-sm h-40 overflow-hidden rounded-lg">
-                        <img loading="lazy" src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg" class="h-full w-full object-cover object-center"/>
+                        <img
+                            loading="lazy"
+                            src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
+                            class="h-full w-full object-cover object-center"
+                            alt=""
+                        />
                     </div>
-                    <h3 class="mt-6 text-sm text-[#7a7a7a] ">"Desk and Office"</h3>
-                    <p class="font-semibold text-black dark:text-eggshell">"Work from home accessories"</p>
+                    <h3 class="mt-6 text-sm text-[#3f3f3f] ">"Desk and Office"</h3>
+                    <p class="font-semibold text-black dark:text-eggshell">
+                        "Work from home accessories"
+                    </p>
                 </div>
             </div>
         </div>

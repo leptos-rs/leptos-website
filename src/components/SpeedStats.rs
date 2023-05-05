@@ -17,21 +17,20 @@ pub fn PercentageBar(
     color_transparent: String,
     tech_name: String,
 ) -> impl IntoView {
-    view! {
-        cx,
+    view! { cx,
         <div class="text-eggshell flex flex-col lg:items-center lg:flex-row">
-            <div class=" mb-2 font-bold lg:hidden">
-                {tech_name}
-            </div>
+            <div class=" mb-2 font-bold lg:hidden">{tech_name}</div>
             <div
                 style=format!("border-color: {color_transparent}")
                 class="w-full h-10 relative rounded-md border-2"
             >
                 <div
                     style=format!("width: {percentage}%; outline-color: {color}")
-                    class=format!("h-full absolute top-0 left-0 rounded-md outline-2 outline flex items-center justify-end px-2 {background}")
+                    class=format!(
+                        "h-full absolute top-0 left-0 rounded-md outline-2 outline flex items-center justify-end px-2 {background}"
+                    )
                 >
-                <span class="relative ">{percentage}"%"</span>
+                    <span class="relative ">{percentage} "%"</span>
                 </div>
             </div>
         </div>
@@ -40,14 +39,10 @@ pub fn PercentageBar(
 
 #[component]
 pub fn Label(cx: Scope, tech_name: String) -> impl IntoView {
-    view! {
-        cx,
+    view! { cx,
         <div class="text-purple dark:text-eggshell">
-        <div class="h-10 text-xl flex items-center justify-end">
-            {tech_name}
+            <div class="h-10 text-xl flex items-center justify-end">{tech_name}</div>
         </div>
-    </div>
-
     }
 }
 
@@ -101,35 +96,42 @@ pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
 
     view! { cx,
         <div class="2xl:ml-[-100px]">
-        <div class="flex max-w-4xl mx-auto">
-            <div class="hidden lg:flex flex-col gap-4 py-8 pr-4 pl-0 mt-0.5 font-bold "
-            >
-                {labels.iter()
-                    .map(|row| view! {
-                        cx,
-                        <Label tech_name={row.name.clone()} />
-                    }).collect::<Vec<_>>()
-                }
-            </div>
-            <div class=format!(
-                "w-full h-full p-8 gap-4 bg-gradient-to-tr from-purple to-dark_blue rounded-md mx-auto flex flex-col {} {}",
-                shadow_class, border_class
-            )>
-                {labels.iter()
-                    .map(|row| view! {
-                        cx,
-                        <PercentageBar
-                            tech_name={row.name.clone()}
-                            color={row.color.clone()}
-                            color_transparent={row.color_transparent.clone()}
-                            background={row.background.clone()}
-                            percentage={row.percentage} />
-                    })
-                    .collect::<Vec<_>>()
-                }
-                <p class="text-white opacity-50 text-sm">"Source: "<a href="https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html" class="hover:underline">"https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html"</a></p>
-            </div>    </div>
-        </div>
+            <div class="flex max-w-4xl mx-auto">
+                <div class="hidden lg:flex flex-col gap-4 py-8 pr-4 pl-0 mt-0.5 font-bold ">
+                    {labels
+                        .iter()
+                        .map(|row| {
+                            view! { cx, <Label tech_name={row.name.clone()}/> }
+                        })
+                        .collect::<Vec<_>>()}
+                </div>
+                <div class=format!(
+                    "w-full h-full p-8 gap-4 bg-gradient-to-tr from-purple to-dark_blue rounded-md mx-auto flex flex-col {} {}",
+                    shadow_class, border_class
+                )>
+                    {labels
+                        .iter()
+                        .map(|row| {
+                            view! { cx,
+                                <PercentageBar
+                                    tech_name={row.name.clone()}
+                                    color={row.color.clone()}
+                                    color_transparent={row.color_transparent.clone()}
+                                    background={row.background.clone()}
+                                    percentage={row.percentage}
+                                />
+                            }
+                        })
+                        .collect::<Vec<_>>()}
+                    <p class="text-white opacity-50 text-sm">
 
+                        "Source: "
+                    <a href="https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html">
+                        <code>"js-framework-benchmark"</code> " official results for Chrome 112."
+                    </a>
+                    </p>
+                </div>
+            </div>
+        </div>
     }
 }

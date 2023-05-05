@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 
-.alex-special,
-.alex-special-1,
-.alex-special-2 {
+.code-example-ping,
+.code-example-ping-1,
+.code-example-ping-2 {
   @apply relative;
 }
 
-.alex-special::after,
-.alex-special-1::after,
-.alex-special-2::after {
+.code-example-ping::after,
+.code-example-ping-1::after,
+.code-example-ping-2::after {
   content: "";
   animation: ping 0.5s cubic-bezier(0, 0, 0.2, 1) ;
   @apply absolute inset-0 bg-white mix-blend-difference rounded-md py-2 px-1 z-10;
@@ -33,11 +33,11 @@
   }
 }
 
-.alex-special-1::after {
+.code-example-ping-1::after {
   animation-delay: 500ms;
 }
 
-.alex-special-2::after {
+.code-example-ping-2::after {
   animation-delay: 1000ms;
 }
 

@@ -22,7 +22,11 @@ simple_logger = "4.0.0"
 serde = { version = "1", features = ["derive"] }
 axum = { version = "0.6.1", optional = true }
 tower = { version = "0.4.13", optional = true }
-tower-http = { version = "0.4", features = ["fs"], optional = true }
+tower-http = { version = "0.4", features = [
+	"compression-gzip",
+	"fs",
+	"trace",
+], optional = true }
 tokio = { version = "1.22.0", features = ["full"], optional = true }
 http = { version = "0.2.8" }
 sqlx = { version = "0.6.2", features = [
@@ -61,6 +65,12 @@ denylist = [
 	"femark",
 ]
 skip_feature_sets = [["csr", "ssr"], ["csr", "hydrate"], ["ssr", "hydrate"]]
+
+[profile.wasm-release]
+inherits = "release"
+lto = true
+opt-level = 'z'
+codegen-units = 1
 
 [package.metadata.leptos]
 # The name used by wasm-bindgen/cargo-leptos for the JS/WASM bundle. Defaults to the crate name
@@ -105,3 +115,8 @@ lib-features = ["hydrate"]
 #
 # Optional. Defaults to false.
 lib-default-features = false
+
+# The profile to use for the lib target when compiling for release
+#
+# Optional. Defaults to "release".
+lib-profile-release = "wasm-release"

@@ -31,21 +31,21 @@ pub fn InteractiveCodeExample(
 fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
     let callback_class = move || {
         if is_active() {
-            "alex-special"
+            "code-example-ping"
         } else {
             ""
         }
     };
     let setter_class = move || {
         if is_active() {
-            "alex-special-1"
+            "code-example-ping-1"
         } else {
             ""
         }
     };
     let getter_class = move || {
         if is_active() {
-            "alex-special-2"
+            "code-example-ping-2"
         } else {
             ""
         }
@@ -56,74 +56,115 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
             "#"
             <i class="hh8">"["</i>
             <i class="hh15">"component"</i>
-            <i class="hh8">"]"</i>"\n"
-            <i class="hh15">"pub"</i>" "
-            <i class="hh15">"fn"</i>" "
+            <i class="hh8">"]"</i>
+            "\n"
+            <i class="hh15">"pub"</i>
+            " "
+            <i class="hh15">"fn"</i>
+            " "
             <i class="hh13">"Button"</i>
             <i class="hh8">"("</i>
             <i class="hh15">"cx"</i>
             ": "
             <i class="hh13">"Scope"</i>
-            <i class="hh8">")"</i>" "
+            <i class="hh8">")"</i>
+            " "
             <i class="hh5">"-"</i>
-            <i class="hh5">">"</i>" "
-            <i class="hh15">"impl"</i>" "
-            <i class="hh13">"IntoView"</i>" "
-            <i class="hh8">"{"</i>"\n  "
-            <i class="hh6">"let"</i>" "
+            <i class="hh5">">"</i>
+            " "
+            <i class="hh15">"impl"</i>
+            " "
+            <i class="hh13">"IntoView"</i>
+            " "
+            <i class="hh8">"{"</i>
+            "\n  "
+            <i class="hh6">"let"</i>
+            " "
             <i class="hh8">"("</i>
-            <span class=getter_class><i class="hh17">"count"</i></span>
-            <i class="hh9">","</i>" "
-            <span class=setter_class><i class="hh17">"set_count"</i></span>
-            <i class="hh8">")"</i>" "
-            <i class="hh5">"="</i>" "
+            <span class=getter_class>
+                <i class="hh17">"count"</i>
+            </span>
+            <i class="hh9">","</i>
+            " "
+            <span class=setter_class>
+                <i class="hh17">"set_count"</i>
+            </span>
+            <i class="hh8">")"</i>
+            " "
+            <i class="hh5">"="</i>
+            " "
             <i class="hh6">"create_signal"</i>
             <i class="hh8">"("</i>
             <i class="hh17">"cx"</i>
-            <i class="hh9">","</i>" "
+            <i class="hh9">","</i>
+            " "
             "0"
             <i class="hh8">")"</i>
-            <i class="hh9">";"</i>"\n  "
+            <i class="hh9">";"</i>
+            "\n  "
             <i class="hh15">"view"</i>
-            <i class="hh5">"!"</i>" "
-            <i class="hh8">"{"</i>" "
+            <i class="hh5">"!"</i>
+            " "
+            <i class="hh8">"{"</i>
+            " "
             <i class="hh17">"cx"</i>
-            <i class="hh9">","</i>" \n    "
+            <i class="hh9">","</i>
+            " \n    "
             <i class="hh5">"<"</i>
-            <i class="hh12">"button"</i>" "
+            <i class="hh12">"button"</i>
+            " "
             <i class="hh15">"on"</i>
             ":"
-            <span class=callback_class><i class="hh15">"click"</i></span>
+            <span class=callback_class>
+                <i class="hh15">"click"</i>
+            </span>
             <i class="hh5">"="</i>
-            <i class="hh15">"move"</i>" "
+            <i class="hh15">"move"</i>
+            " "
             <i class="hh5">"|"</i>
             <i class="hh15">"_"</i>
-            <i class="hh5">"|"</i>" "
-            <i class="hh8">"{"</i>" \n        "
+            <i class="hh5">"|"</i>
+            " "
+            <i class="hh8">"{"</i>
+            " \n        "
             <i class="hh17">"set_count"</i>
             <i class="hh9">"."</i>
-            <span class=setter_class><i class="hh3">"update"</i></span>
+            <span class=setter_class>
+                <i class="hh3">"update"</i>
+            </span>
             <i class="hh8">"("</i>
             <i class="hh5">"|"</i>
             <i class="hh15">"n"</i>
-            <i class="hh5">"|"</i>" "
+            <i class="hh5">"|"</i>
+            " "
             <i class="hh5">"*"</i>
-            <i class="hh15">"n"</i>" "
-            <i class="hh5">"+="</i>" "
+            <i class="hh15">"n"</i>
+            " "
+            <i class="hh5">"+="</i>
+            " "
             "1"
             <i class="hh8">")"</i>
-            <i class="hh9">";"</i>"\n      "
-            <i class="hh8">"}"</i>"\n    "
-            <i class="hh5">">"</i>"\n      "
-            "\"Click me: \"""\n      "
+            <i class="hh9">";"</i>
+            "\n      "
+            <i class="hh8">"}"</i>
+            "\n    "
+            <i class="hh5">">"</i>
+            "\n      "
+            "\"Click me: \""
+            "\n      "
             <i class="hh8">"{"</i>
-            <span class=getter_class><i class="hh17">"count"</i></span>
-            <i class="hh8">"}"</i>"\n    "
+            <span class=getter_class>
+                <i class="hh17">"count"</i>
+            </span>
+            <i class="hh8">"}"</i>
+            "\n    "
             <i class="hh5">"<"</i>
             <i class="hh5">"/"</i>
             <i class="hh12">"button"</i>
-            <i class="hh5">">"</i>"\n  "
-            <i class="hh8">"}"</i>"\n"
+            <i class="hh5">">"</i>
+            "\n  "
+            <i class="hh8">"}"</i>
+            "\n"
             <i class="hh8">"}"</i>
         </pre>
     }
