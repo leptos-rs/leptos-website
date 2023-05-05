@@ -124,35 +124,18 @@ pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
                     >
                         "Submit"
                     </button>
-                    {move || {
-                        if loading() {
-                            view! { cx,
-                                <>
-                                    <div class="text-black dark:text-eggshell">"Loading!"</div>
-                                </>
-                            }
-                        } else {
-                            view! { cx, <></> }
+                    {move || loading().then(|| view! { cx,
+                                <div class="text-black dark:text-eggshell">"Loading!"</div>
                         }
-                    }}
+                    )}
                     {move || match result_of_save() {
-                        ServerResult::NoResult => {
-                            view! { cx, <></> }
-                        }
-                        ServerResult::Success => {
-                            view! { cx,
-                                <>
+                        ServerResult::NoResult => ().into_view(cx),
+                        ServerResult::Success => view! { cx,
                                     <div class="text-black dark:text-eggshell">"Success!"</div>
-                                </>
-                            }
-                        }
-                        ServerResult::Error(e) => {
-                            view! { cx,
-                                <>
+                            }.into_view(cx),
+                        ServerResult::Error(e) => view! { cx,
                                     <div class="text-black dark:text-eggshell">{e}</div>
-                                </>
-                            }
-                        }
+                        }.into_view(cx)
                     }}
                 </div>
             </div>

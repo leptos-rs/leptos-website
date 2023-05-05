@@ -42,6 +42,7 @@ pub fn App(cx: Scope) -> impl IntoView {
                     view=|cx| {
                         view! { cx, <Home/> }
                     }
+                    ssr=SsrMode::Async
                 />
             </Routes>
         </Router>

@@ -60,17 +60,30 @@ pub fn CodeExampleLayout(
             {match code {
                 CodeExampleMode::Html(code_resource) => {
                     view! { cx,
-                        <div
-                            class=code_children_class
-                            inner_html=move || match code_resource.read(cx) {
-                                Some(Ok(code_display)) => code_display,
-                                _ => "".to_string(),
-                            }
-                        ></div>
-                    }
+                        <Suspense fallback=move || view! { cx, <div class=code_children_class>"fallback"</div> }>
+                            {move || code_resource.read(cx).map(|res| {
+                                res.map(|code| {
+                                    view! { cx, 
+                                        <div class=code_children_class
+                                            inner_html=code
+                                        />
+                                    }
+                                })
+                                    /* Some(Ok(code_display)) => code_display,
+                                    _ => "".to_string(), */
+                            })}
+                            /* <div
+                                class=code_children_class
+                                inner_html=move || match code_resource.read(cx) {
+                                    Some(Ok(code_display)) => code_display,
+                                    _ => "".to_string(),
+                                }
+                            ></div> */
+                        </Suspense>
+                    }.into_view(cx)
                 }
                 CodeExampleMode::View(child) => {
-                    view! { cx, <div class=code_children_class>{child}</div> }
+                    view! { cx, <div class=code_children_class>{child}</div> }.into_view(cx)
                 }
             }}
             <div class="w-full flex flex-col lg:max-w-md max-w-full  border-black dark:border-eggshell border-opacity-30  items-center ">

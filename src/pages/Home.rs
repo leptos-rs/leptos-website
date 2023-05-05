@@ -9,7 +9,7 @@ use crate::components::SpeedStats::*;
 use leptos::*;
 use leptos_meta::*;
 
-#[server(PerformMarkdownCodeToHtml, "/api")]
+#[server(PerformMarkdownCodeToHtml, "/api", "GetJSON")]
 pub async fn perform_markdown_code_to_html(markdown: String) -> Result<String, ServerFnError> {
     use femark::{process_markdown_to_html, HTMLOutput};
 
@@ -86,16 +86,14 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     "Leptos makes it easy to integrate Rust backend code with your user interface in a few lines of code. " <code>"#[server]"</code> " functions let you cross the client-server boundary without the boilerplate of setting up a new API endpoint, making it easy to create “full-stack components” that let you write everything from a SQL query to a button click in one place."
                 </p>
                 <div class="mt-6">
-                    <Transition fallback=|| ()>
-                        <CodeExample
-                            code=EXAMPLE_SERVER_FUNCTION_CODE.to_string()
-                            shadow=false
-                            border=false
-                            background="bg-[#F3F4F6] dark:bg-black".to_string()
-                        >
-                            <ExampleServerFunction/>
-                        </CodeExample>
-                    </Transition>
+                    <CodeExample
+                        code=EXAMPLE_SERVER_FUNCTION_CODE.to_string()
+                        shadow=false
+                        border=false
+                        background="bg-[#F3F4F6] dark:bg-black".to_string()
+                    >
+                        <ExampleServerFunction/>
+                    </CodeExample>
                 </div>
                 <p class="max-w-[70ch] mt-8 mb-0 lg:mx-auto lg:text-center  text-eggshell">
                     "Leptos harnesses Rust's strong type safety, speed, and concurrency to deliver highly performant and reliable applications."
@@ -109,16 +107,14 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     "Tools like Tailwind integrate with Leptos perfectly, letting you build on design patterns shared across the Web."
                 </p>
                 <div class="mt-6">
-                    <Transition fallback=|| ()>
-                        <CodeExample
-                            code=EXAMPLE_TAILWIND_CODE.to_string()
-                            shadow=true
-                            border=true
-                            background="bg-[#F3F4F6] dark:bg-black".to_string()
-                        >
-                            <ExampleTailwind/>
-                        </CodeExample>
-                    </Transition>
+                    <CodeExample
+                        code=EXAMPLE_TAILWIND_CODE.to_string()
+                        shadow=true
+                        border=true
+                        background="bg-[#F3F4F6] dark:bg-black".to_string()
+                    >
+                        <ExampleTailwind/>
+                    </CodeExample>
                 </div>
                 <p class="max-w-[70ch] mt-8 mb-12 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
                     "Boost your productivity with great tooling like hot-reloading template updates and a dedicated Leptos language server and VSCode extension, designed to streamline your Leptos coding experience and maintain a consistent code style throughout your project."

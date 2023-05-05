@@ -18,7 +18,7 @@ cfg_if! {
 
         #[tokio::main]
         async fn main() {
-            simple_logger::init_with_level(log::Level::Debug).expect("couldn't initialize logging");
+            simple_logger::init_with_level(log::Level::Warn).expect("couldn't initialize logging");
 
             _ = PerformMarkdownCodeToHtml::register();
 
@@ -32,6 +32,7 @@ cfg_if! {
             let leptos_options = conf.leptos_options;
             let addr = leptos_options.site_addr;
             let routes = generate_route_list(|cx| view! { cx, <App/> }).await;
+            leptos::log!("routes = {routes:?}");
 
             // build our application with a route
             let app = Router::new()
