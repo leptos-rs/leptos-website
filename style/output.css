@@ -1550,6 +1550,16 @@ pre i {
   color: rgb(241 250 238 / var(--tw-text-opacity));
 }
 
+.dark .dark\:text-\[\#f0f0f0\] {
+  --tw-text-opacity: 1;
+  color: rgb(240 240 240 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-\[\#e0e0e0\] {
+  --tw-text-opacity: 1;
+  color: rgb(224 224 224 / var(--tw-text-opacity));
+}
+
 @media (min-width: 640px) {
   .sm\:h-auto {
     height: auto;

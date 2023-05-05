@@ -20,7 +20,7 @@ pub fn Collections(cx: Scope) -> impl IntoView {
                     <img loading="lazy" src="desk.jpg"
                          class="h-full w-full object-cover object-center"/>
                 </div>
-                <h3 class="mt-6 text-sm text-[#7a7a7a]">
+                <h3 class="mt-6 text-sm text-[#3f3f3f] dark:text-[#e0e0e0]">
                     "Desk and Office"
                 </h3>
                 <p class="font-semibold text-black">
@@ -47,7 +47,7 @@ pub fn ExampleTailwind(cx: Scope) -> impl IntoView {
                             alt=""
                         />
                     </div>
-                    <h3 class="mt-6 text-sm text-[#3f3f3f] ">"Desk and Office"</h3>
+                    <h3 class="mt-6 text-sm text-[#3f3f3f] dark:text-[#e0e0e0]">"Desk and Office"</h3>
                     <p class="font-semibold text-black dark:text-eggshell">
                         "Work from home accessories"
                     </p>
