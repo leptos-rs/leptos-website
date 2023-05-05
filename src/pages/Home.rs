@@ -22,10 +22,10 @@ pub async fn perform_markdown_code_to_html(markdown: String) -> Result<String, S
 #[component]
 pub fn Home(cx: Scope) -> impl IntoView {
     let feature_list_items: Vec<String> = vec![
-        String::from("Easily manage state without fighting the borrow checker with reactive signals."),
-        String::from("Write “server functions” that work across both the server and client"),
-        String::from("Create full-stack apps that start working immediately and are progressively enhance with client-side interactivity."),
+        String::from("Create full-stack apps that start working immediately and are progressively enhanced with client-side interactivity."),
         String::from("Start projects fast using simple tooling with minimal configuration."),
+        String::from("Easily manage state without fighting the borrow checker with reactive signals."),
+        String::from("Write “server functions” that work across both the server and client."),
         String::from("Sleep well knowing Rust’s type safety is protecting your whole app."),
     ];
 
@@ -39,7 +39,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                         "Sustainable, maintainable, and engaging"
                     </h2>
                     <p class="mt-4 lg:mx-auto text-lg font-medium  text-purple dark:text-eggshell">
-                        "Experience the future of Rust web development with a framework that keeps you excited to create exceptional digital experiences."
+                        "Experience the future of Rust web development with a framework that keeps you excited to create exceptional websites and applications."
                     </p>
                     <p class="mt-4 lg:mx-auto text-purple dark:text-eggshell">
                         "Leptos makes it easy to build applications in the most-loved programming language, combining the best paradigms of modern web development with the power of Rust."
@@ -75,7 +75,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     />
                 </div>
                 <p class="max-w-[70ch] mt-8 mb-16 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
-                    "Leptos’s fine-grained reactive signals make targeted updates to the DOM when you make changes to your component’s state, keeping your app responsive to user input."
+                    "Leptos’s fine-grained reactive signals make targeted updates to the DOM when your component’s state changes, keeping your app responsive to user input."
                 </p>
             </div>
             <div class="my-8 lg:my-12  bg-gradient-to-tr from-red via-purple to-black px-4 py-12 max-w-[1920px] mx-auto  4xl:rounded-md bg-white 4xl:shadow-[10px_10px_0px_#190E3825] ">
@@ -98,7 +98,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     </Transition>
                 </div>
                 <p class="max-w-[70ch] mt-8 mb-0 lg:mx-auto lg:text-center  text-eggshell">
-                    "Leptos harnesses Rust's strong type safety, speed, and concurrency to deliver highly performant and reliable applications. Enjoy the best of both worlds with familiar UI patterns and the unparalleled performance of cutting-edge Rust technology."
+                    "Leptos harnesses Rust's strong type safety, speed, and concurrency to deliver highly performant and reliable applications."
                 </p>
             </div>
             <div class="mt-12 mb-8    px-4  max-w-[1920px] mx-auto ">
@@ -106,7 +106,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     "Your favorite tools"
                 </h2>
                 <p class="max-w-[70ch] mt-4 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
-                    "Tools like Tailwind integrate with Leptos perfectly. Use all the best tools the web has to offer."
+                    "Tools like Tailwind integrate with Leptos perfectly, letting you build on design patterns shared across the Web."
                 </p>
                 <div class="mt-6">
                     <Transition fallback=|| ()>
@@ -121,7 +121,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     </Transition>
                 </div>
                 <p class="max-w-[70ch] mt-8 mb-12 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
-                    "Boost your productivity with the dedicated VSCode code formatting extension, designed to streamline your Leptos coding experience and maintain a consistent code style throughout your project. Maximize your efficiency and build stunning projects that stand out with Leptos as your trusted partner in web development."
+                    "Boost your productivity with great tooling like hot-reloading template updates and a dedicated Leptos language server and VSCode extension, designed to streamline your Leptos coding experience and maintain a consistent code style throughout your project."
                 </p>
                 <div class="w-full flex justify-center pb-16">
                     <a
