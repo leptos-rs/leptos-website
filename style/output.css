@@ -680,6 +680,10 @@ video {
   height: 1rem;
 }
 
+.h-\[38px\] {
+  height: 38px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -1194,8 +1198,17 @@ video {
   color: #F2F8FA70;
 }
 
+.text-\[\#3f3f3f\] {
+  --tw-text-opacity: 1;
+  color: rgb(63 63 63 / var(--tw-text-opacity));
+}
+
 .text-opacity-20 {
   --tw-text-opacity: 0.2;
+}
+
+.text-opacity-80 {
+  --tw-text-opacity: 0.8;
 }
 
 .opacity-90 {
@@ -1560,6 +1573,10 @@ pre i {
 }
 
 @media (min-width: 640px) {
+  .sm\:h-auto {
+    height: auto;
+  }
+
   .sm\:w-28 {
     width: 7rem;
   }

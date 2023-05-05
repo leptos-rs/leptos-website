@@ -16,6 +16,7 @@ cfg_if! {
         use std::sync::Arc;
         use leptos_website::pages::Home::PerformMarkdownCodeToHtml;
         use leptos_website::components::ExampleServerFunction::SaveFavorites;
+        use tower_http::{compression::CompressionLayer};
 
         #[tokio::main]
         async fn main() {
@@ -40,7 +41,8 @@ cfg_if! {
             .route("/api/*fn_name", post(leptos_axum::handle_server_fns))
             .leptos_routes(leptos_options.clone(), routes, |cx| view! { cx, <App/> } )
             .fallback(file_and_error_handler)
-            .layer(Extension(Arc::new(leptos_options)));
+            .layer(Extension(Arc::new(leptos_options)))
+            .layer(CompressionLayer::new());
 
             // run our app with hyper
             // `axum::Server` is a re-export of `hyper::Server`

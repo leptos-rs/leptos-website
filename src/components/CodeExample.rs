@@ -69,16 +69,7 @@ pub fn CodeExampleLayout(
                                         />
                                     }
                                 })
-                                    /* Some(Ok(code_display)) => code_display,
-                                    _ => "".to_string(), */
                             })}
-                            /* <div
-                                class=code_children_class
-                                inner_html=move || match code_resource.read(cx) {
-                                    Some(Ok(code_display)) => code_display,
-                                    _ => "".to_string(),
-                                }
-                            ></div> */
                         </Suspense>
                     }.into_view(cx)
                 }
@@ -88,7 +79,7 @@ pub fn CodeExampleLayout(
             }}
             <div class="w-full flex flex-col lg:max-w-md max-w-full  border-black dark:border-eggshell border-opacity-30  items-center ">
                 <div class=" w-full bg-white dark:bg-black flex h-10 lg:rounded-tr-lg border-b border-black dark:border-eggshell border-opacity-30 gap-4 justify-between items-center px-4 pointer-events-none border-t lg:border-t-0 ">
-                    <div class="w-full rounded-md bg-[#dbdbdb] items-center text-sm text-black text-opacity-20 h-5 px-2 pointer-events-none">
+                    <div class="w-full rounded-md bg-[#dbdbdb] items-center text-sm text-black text-opacity-80 h-5 px-2 pointer-events-none">
                         "example.com"
                     </div>
                     <div class="flex gap-3">

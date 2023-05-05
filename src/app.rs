@@ -29,6 +29,7 @@ pub fn App(cx: Scope) -> impl IntoView {
     provide_dark_mode_context(cx);
 
     view! { cx,
+        <Html lang="en"/>
         <Stylesheet id="leptos" href="/pkg/leptos_website.css"/>
         <Title formatter/>
         <Meta
