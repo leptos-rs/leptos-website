@@ -1,4 +1,3 @@
-use crate::pages::About::*;
 use crate::pages::Home::*;
 use leptos::*;
 use leptos_meta::*;
@@ -42,12 +41,6 @@ pub fn App(cx: Scope) -> impl IntoView {
                     path=""
                     view=|cx| {
                         view! { cx, <Home/> }
-                    }
-                />
-                <Route
-                    path="/about"
-                    view=|cx| {
-                        view! { cx, <About/> }
                     }
                 />
             </Routes>
