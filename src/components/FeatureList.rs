@@ -3,14 +3,14 @@ use leptos::*;
 #[component]
 pub fn FeatureListItem(cx: Scope, text: String) -> impl IntoView {
     view! { cx,
-        <div class="flex items-center pb-3">
+        <div class="flex items-start pb-3">
             <div class="w-14 h-14">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="1"
-                    class="w-14 h-14 stroke-purple dark:stroke-eggshell"
+                    class="w-10 h-10 stroke-purple dark:stroke-eggshell"
                     viewBox="0 0 24 24"
                 >
                     <path

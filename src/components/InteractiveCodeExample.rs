@@ -29,17 +29,23 @@ pub fn InteractiveCodeExample(
 
 #[component]
 fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
-    let callback_class = move || if is_active() { "bg-red" } else { "" };
+    let callback_class = move || {
+        if is_active() {
+            "code-example-ping"
+        } else {
+            ""
+        }
+    };
     let setter_class = move || {
         if is_active() {
-            "bg-orange delay-100"
+            "code-example-ping-1"
         } else {
             ""
         }
     };
     let getter_class = move || {
         if is_active() {
-            "bg-yellow delay-200"
+            "code-example-ping-2"
         } else {
             ""
         }
@@ -170,32 +176,29 @@ fn ExampleComponent(cx: Scope, set_is_active: WriteSignal<bool>) -> impl IntoVie
     let timeout_handle = store_value(cx, None::<TimeoutHandle>);
 
     view! { cx,
-        <noscript class="block text-center bg-beige font-mono text-xs p-2">
-            "This interactive example isn’t going to work without JavaScript, sorry."
-        </noscript>
         <div class="px-2 py-6 h-full w-full flex flex-col justify-center items-center ">
             <button
                 class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md border border-purple dark:border-eggshell"
                 on:click=move |_| {
                     set_count.update(|n| *n += 1);
                     set_is_active(true);
+
                     if let Some(handle) = timeout_handle.get_value() {
                         handle.clear();
                     }
-                    timeout_handle
-                        .set_value(
-                            set_timeout_with_handle(
-                                    move || {
-                                        set_is_active(false);
-                                    },
-                                    Duration::from_millis(500),
-                                )
-                                .ok(),
-                        );
+                    timeout_handle.set_value(
+                        set_timeout_with_handle(
+                            move || {
+                                set_is_active(false);
+                            },
+                            Duration::from_millis(1500),
+                        )
+                        .ok(),
+                    );
                 }
             >
                 "Click me: "
-                {count}
+                {move || count()}
             </button>
         </div>
     }

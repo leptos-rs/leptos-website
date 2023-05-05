@@ -26,14 +26,14 @@ pub fn Home(cx: Scope) -> impl IntoView {
         String::from("Start projects fast using simple tooling with minimal configuration."),
         String::from("Easily manage state without fighting the borrow checker with reactive signals."),
         String::from("Write “server functions” that work across both the server and client."),
-        String::from("Sleep well knowing Rust’s type safety is protecting your whole app."),
+        String::from("Sleep well knowing Rust's type safety is protecting your whole app."),
     ];
 
     view! { cx,
         <Title text="Home"/>
         <Page>
             <HeroHeader/>
-            <div class="mt-20 mb-8    px-4  max-w-[1920px] mx-auto flex flex-col gap-8 justify-center lg:flex-row md:gap-12">
+            <div class="mt-12 lg:mt-20 mb-8    px-4  max-w-[1920px] mx-auto flex flex-col gap-8 justify-center lg:flex-row md:gap-12">
                 <div class="w-full lg:max-w-[45ch]">
                     <h2 class="font-bold text-2xl lg:text-4xl lg:max-w-[35ch] text-purple dark:text-eggshell">
                         "Sustainable, maintainable, and engaging"
@@ -49,23 +49,23 @@ pub fn Home(cx: Scope) -> impl IntoView {
                     <FeatureList items=feature_list_items/>
                 </div>
             </div>
-            <div class="mt-12 mb-8    px-4  max-w-[1920px] mx-auto ">
-                <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">
+            <div class="mt-12 lg:mt-24 mb-8    px-4  max-w-[1920px] mx-auto ">
+
+
+                    <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">
                     "High-performance"
                 </h2>
-                <p class="max-w-[70ch] mt-4 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
-                    "Engineered for optimal performance, Leptos has earned its place among the top-performing frontend frameworks."
-                </p>
                 <div class="mt-6">
-                    <SpeedStats shadow=true border=true/>
-                </div>
+                    <SpeedStats shadow={true} border={false}/>
+                    </div>
+
             </div>
-            <div class="mt-12 mb-8    px-4  max-w-[1920px] mx-auto ">
+            <div class="mt-12 lg:mt-28 mb-8 px-4  max-w-[1920px] mx-auto ">
                 <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">
                     "Your favorite UI patterns"
                 </h2>
                 <p class="max-w-[70ch] mt-4 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
-                    "Build websites and apps from self-contained components with reactive state management that’s easy to use."
+                    "Build websites and apps from self-contained components with reactive state management that's easy to use."
                 </p>
                 <div class="mt-6">
                     <InteractiveCodeExample
@@ -74,16 +74,18 @@ pub fn Home(cx: Scope) -> impl IntoView {
                         background="bg-[#F3F4F6] dark:bg-black".to_string()
                     />
                 </div>
-                <p class="max-w-[70ch] mt-8 mb-16 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
-                    "Leptos’s fine-grained reactive signals make targeted updates to the DOM when your component’s state changes, keeping your app responsive to user input."
+                <p class="max-w-[70ch] mt-8 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
+                    "Leptos's fine-grained reactive signals make targeted updates to the DOM when your component's state changes, keeping your app responsive to user input."
                 </p>
             </div>
-            <div class="my-8 lg:my-12  bg-gradient-to-tr from-red via-purple to-black px-4 py-12 max-w-[1920px] mx-auto  4xl:rounded-md bg-white 4xl:shadow-[10px_10px_0px_#190E3825] ">
+            <div class="mt-8 lg:my-32  bg-gradient-to-tr from-red via-purple to-black px-4 py-12 max-w-[1920px] mx-auto  4xl:rounded-md bg-white 4xl:shadow-[10px_10px_0px_#190E3825] ">
                 <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-eggshell">
                     "Your favorite language"
                 </h2>
                 <p class="max-w-[70ch] mt-4  lg:mx-auto lg:text-center text-eggshell">
-                    "Leptos makes it easy to integrate Rust backend code with your user interface in a few lines of code. " <code>"#[server]"</code> " functions let you cross the client-server boundary without the boilerplate of setting up a new API endpoint, making it easy to create “full-stack components” that let you write everything from a SQL query to a button click in one place."
+                    "Leptos makes it easy to integrate Rust backend code with your user interface in a few lines of code. "
+                    <code>"#[server]"</code>
+                    " functions let you cross the client-server boundary without the boilerplate of setting up a new API endpoint, making it easy to create “full-stack components” that let you write everything from a SQL query to a button click in one place."
                 </p>
                 <div class="mt-6">
                     <CodeExample

@@ -60,21 +60,25 @@ pub fn CodeExampleLayout(
             {match code {
                 CodeExampleMode::Html(code_resource) => {
                     view! { cx,
-                        <Suspense fallback=move || view! { cx, <div class=code_children_class>"fallback"</div> }>
-                            {move || code_resource.read(cx).map(|res| {
-                                res.map(|code| {
-                                    view! { cx, 
-                                        <div class=code_children_class
-                                            inner_html=code
-                                        />
-                                    }
-                                })
-                            })}
+                        <Suspense fallback=move || {
+                            view! { cx, <div class=code_children_class>"fallback"</div> }
+                        }>
+                            {move || {
+                                code_resource
+                                    .read(cx)
+                                    .map(|res| {
+                                        res.map(|code| {
+                                            view! { cx, <div class=code_children_class inner_html=code></div> }
+                                        })
+                                    })
+                            }}
                         </Suspense>
-                    }.into_view(cx)
+                    }
+                        .into_view(cx)
                 }
                 CodeExampleMode::View(child) => {
-                    view! { cx, <div class=code_children_class>{child}</div> }.into_view(cx)
+                    view! { cx, <div class=code_children_class>{child}</div> }
+                        .into_view(cx)
                 }
             }}
             <div class="w-full flex flex-col lg:max-w-md max-w-full  border-black dark:border-eggshell border-opacity-30  items-center ">

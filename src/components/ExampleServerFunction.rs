@@ -73,7 +73,7 @@ pub fn FavoritesForm(cx: Scope) -> impl IntoView {
 pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
     let favorites = create_server_action::<SaveFavorites>(cx);
     let value = favorites.value();
-    view! { cx, 
+    view! { cx,
         <ActionForm action=favorites>
             <div class="p-4 sm:p-8">
                 <h2 class="text-2xl font-bold text-black dark:text-eggshell">"Save to database"</h2>
@@ -114,13 +114,13 @@ pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <button
-                                class="block max-w-fit mt-1 text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md border border-purple dark:border-eggshell"
-                            >
+                            <button class="block max-w-fit mt-1 text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md border border-purple dark:border-eggshell">
                                 "Submit"
                             </button>
                             <Show when=favorites.pending() fallback=|_| ()>
-                                <div class=" text-black dark:text-eggshell h-4 ml-4">"Loading..."</div>
+                                <div class=" text-black dark:text-eggshell h-4 ml-4">
+                                    "Loading..."
+                                </div>
                             </Show>
                         </div>
                     </div>
