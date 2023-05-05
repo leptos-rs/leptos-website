@@ -15,12 +15,14 @@ cfg_if! {
         use leptos_axum::{generate_route_list, LeptosRoutes};
         use std::sync::Arc;
         use leptos_website::pages::Home::PerformMarkdownCodeToHtml;
+        use leptos_website::components::ExampleServerFunction::SaveFavorites;
 
         #[tokio::main]
         async fn main() {
             simple_logger::init_with_level(log::Level::Warn).expect("couldn't initialize logging");
 
             _ = PerformMarkdownCodeToHtml::register();
+            _ = SaveFavorites::register();
 
             /* sqlx::migrate!()
                 .run(&mut conn)
@@ -32,7 +34,6 @@ cfg_if! {
             let leptos_options = conf.leptos_options;
             let addr = leptos_options.site_addr;
             let routes = generate_route_list(|cx| view! { cx, <App/> }).await;
-            leptos::log!("routes = {routes:?}");
 
             // build our application with a route
             let app = Router::new()

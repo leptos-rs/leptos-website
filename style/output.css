@@ -628,6 +628,10 @@ video {
   margin-bottom: 3rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
 .block {
   display: block;
 }
@@ -670,6 +674,10 @@ video {
 
 .h-6 {
   height: 1.5rem;
+}
+
+.h-4 {
+  height: 1rem;
 }
 
 .w-full {
