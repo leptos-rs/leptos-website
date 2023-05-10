@@ -1,3 +1,5 @@
+#![allow(non_snake_case)]
+
 use cfg_if::cfg_if;
 pub mod app;
 pub mod components;
