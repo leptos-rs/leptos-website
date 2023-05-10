@@ -198,7 +198,7 @@ fn ExampleComponent(cx: Scope, set_is_active: WriteSignal<bool>) -> impl IntoVie
                 }
             >
                 "Click me: "
-                {move || count()}
+                {count}
             </button>
         </div>
     }
