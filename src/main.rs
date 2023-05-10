@@ -1,4 +1,5 @@
 use cfg_if::cfg_if;
+use leptos_website::components::DarkModeToggle::ToggleDarkMode;
 
 // boilerplate to run in different modes
 cfg_if! {
@@ -24,6 +25,7 @@ cfg_if! {
 
             _ = PerformMarkdownCodeToHtml::register();
             _ = SaveFavorites::register();
+            _ = ToggleDarkMode::register();
 
             /* sqlx::migrate!()
                 .run(&mut conn)

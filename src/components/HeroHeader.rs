@@ -1,13 +1,10 @@
-use crate::{app::DarkModeContext, components::SphereLogo::*};
+use crate::components::{DarkModeToggle::DarkModeToggle, SphereLogo::*};
 use leptos::*;
 use leptos_router::*;
 
 #[component]
 pub fn HeroHeader(cx: Scope) -> impl IntoView {
     let (hamburger_menu_open, set_hamburger_menu_open) = create_signal(cx, false);
-
-    let set_dark_mode = use_context::<DarkModeContext>(cx).unwrap().set_dark_mode;
-    let dark_mode = use_context::<DarkModeContext>(cx).unwrap().dark_mode;
 
     view! { cx,
         <div class="max-w-[1920px] mx-auto relative">
@@ -71,16 +68,7 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                         alt="GitHub"
                                     />
                                 </a>
-                                <button on:click=move |_| set_dark_mode.update(|n| *n = !*n)>
-                                    <img
-                                        class=" h-6 w-6 block"
-                                        src=move || match dark_mode() {
-                                            true => "/images/sun.svg",
-                                            false => "/images/moon.svg",
-                                        }
-                                        alt="Toggle Dark Mode"
-                                    />
-                                </button>
+                                <DarkModeToggle/>
                                 <button on:click=move |_| set_hamburger_menu_open.update(|n| *n = !*n)>
                                     <img
                                         class=" h-6 w-6 block lg:hidden"

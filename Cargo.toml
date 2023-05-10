@@ -37,11 +37,21 @@ sqlx = { version = "0.6.2", features = [
 thiserror = "1.0.38"
 wasm-bindgen = "0.2"
 femark = { version = "0.1.3", optional = true }
+axum-extra = { version = "0.7.4", optional = true, features = ["cookie"] }
+web-sys = { version = "0.3", optional = true, features = [
+	"HtmlDocument",
+	"MediaQueryList",
+] }
 
 [features]
 default = ["csr"]
 csr = ["leptos/csr", "leptos_meta/csr", "leptos_router/csr"]
-hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate"]
+hydrate = [
+	"leptos/hydrate",
+	"leptos_meta/hydrate",
+	"leptos_router/hydrate",
+	"dep:web-sys",
+]
 ssr = [
 	"dep:axum",
 	"dep:tower",
@@ -54,6 +64,7 @@ ssr = [
 	"dep:leptos_axum",
 	"dep:femark",
 	"dep:cached",
+	"dep:axum-extra",
 ]
 
 [package.metadata.cargo-all-features]
