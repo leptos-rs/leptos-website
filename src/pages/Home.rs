@@ -11,12 +11,19 @@ use leptos_meta::*;
 
 #[server(PerformMarkdownCodeToHtml, "/api", "GetJSON")]
 pub async fn perform_markdown_code_to_html(markdown: String) -> Result<String, ServerFnError> {
-    use femark::{process_markdown_to_html, HTMLOutput};
+    use cached::proc_macro::cached;
 
-    match process_markdown_to_html(markdown) {
-        Ok(HTMLOutput { content, toc: _ }) => Ok(content),
-        Err(e) => Err(ServerFnError::ServerError(e.to_string())),
+    #[cached]
+    fn process_markdown(markdown: String) -> Result<String, ServerFnError> {
+        use femark::{process_markdown_to_html, HTMLOutput};
+
+        match process_markdown_to_html(markdown) {
+            Ok(HTMLOutput { content, toc: _ }) => Ok(content),
+            Err(e) => Err(ServerFnError::ServerError(e.to_string())),
+        }
     }
+
+    process_markdown(markdown)
 }
 
 #[component]

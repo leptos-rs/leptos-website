@@ -7,6 +7,7 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+cached = { version = "0.43", optional = true }
 console_log = "1.0.0"
 console_error_panic_hook = "0.1.7"
 futures = "0.3.25"
@@ -52,6 +53,7 @@ ssr = [
 	"leptos_router/ssr",
 	"dep:leptos_axum",
 	"dep:femark",
+	"dep:cached",
 ]
 
 [package.metadata.cargo-all-features]
