@@ -182,19 +182,19 @@ fn ExampleComponent(cx: Scope, set_is_active: WriteSignal<bool>) -> impl IntoVie
                 on:click=move |_| {
                     set_count.update(|n| *n += 1);
                     set_is_active(true);
-
                     if let Some(handle) = timeout_handle.get_value() {
                         handle.clear();
                     }
-                    timeout_handle.set_value(
-                        set_timeout_with_handle(
-                            move || {
-                                set_is_active(false);
-                            },
-                            Duration::from_millis(1500),
-                        )
-                        .ok(),
-                    );
+                    timeout_handle
+                        .set_value(
+                            set_timeout_with_handle(
+                                    move || {
+                                        set_is_active(false);
+                                    },
+                                    Duration::from_millis(1500),
+                                )
+                                .ok(),
+                        );
                 }
             >
                 "Click me: "

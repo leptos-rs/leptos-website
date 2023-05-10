@@ -57,15 +57,12 @@ pub fn Home(cx: Scope) -> impl IntoView {
                 </div>
             </div>
             <div class="mt-12 lg:mt-24 mb-8    px-4  max-w-[1920px] mx-auto ">
-
-
-                    <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">
+                <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">
                     "High-performance"
                 </h2>
                 <div class="mt-6">
-                    <SpeedStats shadow={true} border={false}/>
-                    </div>
-
+                    <SpeedStats shadow=true border=false/>
+                </div>
             </div>
             <div class="mt-12 lg:mt-28 mb-8 px-4  max-w-[1920px] mx-auto ">
                 <h2 class="max-w-4xl mx-auto font-bold text-2xl lg:text-4xl lg:text-center lg:max-w-[40ch] text-purple dark:text-eggshell">

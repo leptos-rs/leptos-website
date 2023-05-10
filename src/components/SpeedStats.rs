@@ -101,7 +101,7 @@ pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
                     {labels
                         .iter()
                         .map(|row| {
-                            view! { cx, <Label tech_name={row.name.clone()}/> }
+                            view! { cx, <Label tech_name=row.name.clone()/> }
                         })
                         .collect::<Vec<_>>()}
                 </div>
@@ -114,21 +114,21 @@ pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
                         .map(|row| {
                             view! { cx,
                                 <PercentageBar
-                                    tech_name={row.name.clone()}
-                                    color={row.color.clone()}
-                                    color_transparent={row.color_transparent.clone()}
-                                    background={row.background.clone()}
-                                    percentage={row.percentage}
+                                    tech_name=row.name.clone()
+                                    color=row.color.clone()
+                                    color_transparent=row.color_transparent.clone()
+                                    background=row.background.clone()
+                                    percentage=row.percentage
                                 />
                             }
                         })
                         .collect::<Vec<_>>()}
                     <p class="text-white opacity-50 text-sm">
-
                         "Source: "
-                    <a href="https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html">
-                        <code>"js-framework-benchmark"</code> " official results for Chrome 112."
-                    </a>
+                        <a href="https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html">
+                            <code>"js-framework-benchmark"</code>
+                            " official results for Chrome 112."
+                        </a>
                     </p>
                 </div>
             </div>

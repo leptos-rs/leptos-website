@@ -15,7 +15,11 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                 <div class="pl-6 pr-4 md:pl-8 md:pr-6 lg:pl-12 lg:pr-8 pt-2 md:pt-4 lg:pt-8 text-white  w-full ">
                     <div class="flex w-full items-center justify-between max-w-4xl mx-auto">
                         <A href="/">
-                            <img class="block w-[90px] h-[38px] sm:w-28 sm:h-auto" src="/images/header_logo.svg" alt="Home"/>
+                            <img
+                                class="block w-[90px] h-[38px] sm:w-28 sm:h-auto"
+                                src="/images/header_logo.svg"
+                                alt="Home"
+                            />
                         </A>
                         <Show when=move || !hamburger_menu_open() fallback=|_| ()>
                             <div class="hidden lg:block">
@@ -54,10 +58,18 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                         <div>
                             <div class="flex gap-5 md:gap-8 justify-center items-center">
                                 <a href="https://discord.gg/x8NhWWYTV2">
-                                    <img class="block h-6 w-6" src="/images/discord_logo.svg" alt="Discord"/>
+                                    <img
+                                        class="block h-6 w-6"
+                                        src="/images/discord_logo.svg"
+                                        alt="Discord"
+                                    />
                                 </a>
                                 <a href="https://github.com/leptos-rs/leptos">
-                                    <img class="block h-6 w-6" src="/images/github_logo.svg" alt="GitHub"/>
+                                    <img
+                                        class="block h-6 w-6"
+                                        src="/images/github_logo.svg"
+                                        alt="GitHub"
+                                    />
                                 </a>
                                 <button on:click=move |_| set_dark_mode.update(|n| *n = !*n)>
                                     <img

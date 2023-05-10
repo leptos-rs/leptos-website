@@ -8,7 +8,9 @@ pub async fn save_favorites(
     favorite_color: String,
 ) -> Result<String, ServerFnError> {
     tokio::time::sleep(std::time::Duration::from_millis(250)).await;
-    Ok(format!("Here, have some {favorite_color} {favorite_cookie_type} cookies!"))
+    Ok(format!(
+        "Here, have some {favorite_color} {favorite_cookie_type} cookies!"
+    ))
 }
 
 pub const EXAMPLE_SERVER_FUNCTION_CODE: &str = r#"```rust
