@@ -22,7 +22,7 @@ pub fn InteractiveCodeExample(
                     .into_view(cx),
             )
         >
-            <ExampleComponent set_is_active/>
+            <ExampleComponent is_active set_is_active/>
         </CodeExampleLayout>
     }
 }
@@ -171,14 +171,16 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
 }
 
 #[component]
-fn ExampleComponent(cx: Scope, set_is_active: WriteSignal<bool>) -> impl IntoView {
+fn ExampleComponent(cx: Scope, is_active: ReadSignal<bool>, set_is_active: WriteSignal<bool>) -> impl IntoView {
     let (count, set_count) = create_signal(cx, 0);
     let timeout_handle = store_value(cx, None::<TimeoutHandle>);
 
     view! { cx,
         <div class="px-2 py-6 h-full w-full flex flex-col justify-center items-center ">
             <button
-                class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md border border-purple dark:border-eggshell"
+                class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md \
+                border border-purple dark:border-eggshell disabled:opacity-50"
+                disabled=is_active
                 on:click=move |_| {
                     set_count.update(|n| *n += 1);
                     set_is_active(true);
@@ -191,7 +193,7 @@ fn ExampleComponent(cx: Scope, set_is_active: WriteSignal<bool>) -> impl IntoVie
                                     move || {
                                         set_is_active(false);
                                     },
-                                    Duration::from_millis(1500),
+                                    Duration::from_millis(750),
                                 )
                                 .ok(),
                         );
