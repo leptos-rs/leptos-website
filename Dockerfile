@@ -3,8 +3,8 @@ FROM rustlang/rust:nightly-bullseye as builder
 RUN wget https://github.com/cargo-bins/cargo-binstall/releases/latest/download/cargo-binstall-x86_64-unknown-linux-musl.tgz
 RUN tar -xvf cargo-binstall-x86_64-unknown-linux-musl.tgz
 RUN cp cargo-binstall /usr/local/cargo/bin 
-RUN cargo binstall cargo-leptos -y
-# RUN cargo install --git https://github.com/akesson/cargo-leptos cargo-leptos
+#RUN cargo binstall cargo-leptos -y
+RUN cargo install --git https://github.com/gbj/cargo-leptos cargo-leptos
 RUN rustup target add wasm32-unknown-unknown
 RUN mkdir -p /app
 WORKDIR /app
