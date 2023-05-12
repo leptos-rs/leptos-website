@@ -27,7 +27,7 @@ pub fn PercentageBar(
                 <div
                     style=format!("width: {percentage}%; outline-color: {color}")
                     class=format!(
-                        "h-full absolute top-0 left-0 rounded-md outline-2 outline flex items-center justify-end px-2 {background}"
+                        "h-full absolute top-0 left-0 outline-2 outline flex items-center justify-end px-2 {background}"
                     )
                 >
                     <span class="relative ">{percentage} "%"</span>
