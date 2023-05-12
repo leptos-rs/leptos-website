@@ -82,16 +82,12 @@ pub fn DarkModeToggle(cx: Scope) -> impl IntoView {
         <Body class=move || match prefers_dark() {
             Some(true) => "dark".to_string(),
             Some(false) => "light".to_string(),
-            _ => "bg-white".to_string(),
+            _ => "".to_string(),
         }/>
-        <script>r#"
-            if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            	document.body.classList.add('dark');
-            } else {
-            	document.body.classList.remove('dark');
-            }"#
-        </script>
-        <ActionForm action=toggle_dark_mode_action>
+        <script>{include_str!("DarkModeToggle.js")}</script>
+        <ActionForm action=toggle_dark_mode_action
+            class="flex items-center"
+        >
             <input
                 type="hidden"
                 name="prefers_dark"
@@ -99,14 +95,16 @@ pub fn DarkModeToggle(cx: Scope) -> impl IntoView {
             />
             <button
                 type="submit"
-                value=move || { if prefers_dark().unwrap_or(false) { "dark" } else { "light" } }
             >
                 <img
-                    class=" h-6 w-6 block"
-                    src=move || {
-                        if prefers_dark().unwrap_or(false) { "/images/sun.svg" } else { "/images/moon.svg" }
-                    }
-                    alt="Toggle Dark Mode"
+                    class="h-6 w-6 hidden dark:block"
+                    src="/images/sun.svg"
+                    alt="Go to Light Mode"
+                />
+                <img
+                    class="h-6 w-6 block dark:hidden"
+                    src="/images/moon.svg"
+                    alt="Go to Dark Mode"
                 />
             </button>
         </ActionForm>

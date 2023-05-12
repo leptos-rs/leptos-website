@@ -889,11 +889,6 @@ video {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 25 28 / var(--tw-bg-opacity));
-}
-
 .bg-\[url\(\'\/images\/wave_small\.svg\'\)\] {
   background-image: url('/images/wave_small.svg');
 }
@@ -1516,6 +1511,14 @@ pre i {
 .aria-\[current\]\:bg-purple[aria-current] {
   --tw-bg-opacity: 1;
   background-color: rgb(24 17 57 / var(--tw-bg-opacity));
+}
+
+.dark .dark\:block {
+  display: block;
+}
+
+.dark .dark\:hidden {
+  display: none;
 }
 
 .dark .dark\:border-eggshell {
