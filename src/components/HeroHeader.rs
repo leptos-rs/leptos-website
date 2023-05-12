@@ -97,7 +97,7 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                             </p>
                                             <div class="mt-4 flex gap-3">
                                                 <a
-                                                    href="https://www.youtube.com/watch?v=AD3FHodVgE8"
+                                                    href="https://www.youtube.com/watch?v=K_TmEPAD9Ig"
                                                     class="font-semibold text-lg py-2 px-4 text-purple bg-light_blue rounded-md shadow-[3px_3px_0px_#5e7a7b50]  hover:saturate-200 transition-all"
                                                 >
                                                     "Video"
