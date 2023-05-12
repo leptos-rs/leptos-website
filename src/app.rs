@@ -27,5 +27,6 @@ pub fn App(cx: Scope) -> impl IntoView {
                 />
             </Routes>
         </Router>
+        <script defer data-domain="leptos.dev" src="https://plausible.io/js/script.js"></script>
     }
 }
