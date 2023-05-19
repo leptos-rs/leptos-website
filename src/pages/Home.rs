@@ -43,11 +43,8 @@ pub fn Home(cx: Scope) -> impl IntoView {
             <div class="mt-12 lg:mt-20 mb-8    px-4  max-w-[1920px] mx-auto flex flex-col gap-8 justify-center lg:flex-row md:gap-12">
                 <div class="w-full lg:max-w-[45ch]">
                     <h2 class="font-bold text-2xl lg:text-4xl lg:max-w-[35ch] text-purple dark:text-eggshell">
-                        "Sustainable, maintainable, and engaging"
+                        "Build interactive web applications in Rust."
                     </h2>
-                    <p class="mt-4 lg:mx-auto text-lg font-medium  text-purple dark:text-eggshell">
-                        "Experience the future of Rust web development with a framework that keeps you excited to create exceptional websites and applications."
-                    </p>
                     <p class="mt-4 lg:mx-auto text-purple dark:text-eggshell">
                         "Leptos makes it easy to build applications in the most-loved programming language, combining the best paradigms of modern web development with the power of Rust."
                     </p>
