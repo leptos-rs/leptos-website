@@ -69,28 +69,28 @@ pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
             color: String::from("#ED3135"),
             color_transparent: String::from("#ED313540"),
             background: String::from("bg-gradient-to-r from-purple to-red"),
-            percentage: 89,
+            percentage: 92,
         },
         SpeedStat {
             name: String::from("Vue"),
             color: String::from("#F0ADA8"),
             color_transparent: String::from("#F0ADA840"),
             background: String::from(""),
-            percentage: 82,
+            percentage: 80,
         },
         SpeedStat {
             name: String::from("Svelte"),
             color: String::from("#D2D7B4"),
             color_transparent: String::from("#D2D7B440"),
             background: String::from(""),
-            percentage: 76,
+            percentage: 73,
         },
         SpeedStat {
             name: String::from("React"),
             color: String::from("#A8DADC"),
             color_transparent: String::from("#A8DADC40"),
             background: String::from(""),
-            percentage: 22,
+            percentage: 33,
         },
     ];
 
@@ -125,9 +125,9 @@ pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
                         .collect::<Vec<_>>()}
                     <p class="text-white opacity-50 text-sm">
                         "Source: "
-                        <a href="https://krausest.github.io/js-framework-benchmark/2023/table_chrome_112.0.5615.49.html">
+                        <a href="https://krausest.github.io/js-framework-benchmark/2023/table_chrome_113.0.5672.63.html">
                             <code>"js-framework-benchmark"</code>
-                            " official results for Chrome 112."
+                            " official results for Chrome 113."
                         </a>
                     </p>
                 </div>
