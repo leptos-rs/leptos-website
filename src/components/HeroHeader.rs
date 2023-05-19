@@ -36,7 +36,7 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                         "Docs"
                                     </a>
                                     <a
-                                        href="https://codesandbox.io/p/sandbox/16-router-forked-hrrt3h?file=%2Fsrc%2Fmain.rs"
+                                        href="https://codesandbox.io/p/sandbox/leptos-rtfggt?file=%2Fsrc%2Fmain.rs%3A1%2C1"
                                         exact=true
                                         class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                     >
@@ -136,7 +136,7 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                     "Documentation"
                                 </a>
                                 <a
-                                    href="https://codesandbox.io/p/sandbox/16-router-forked-hrrt3h?file=%2Fsrc%2Fmain.rs"
+                                    href="https://codesandbox.io/p/sandbox/leptos-rtfggt?file=%2Fsrc%2Fmain.rs%3A1%2C1"
                                     exact=true
                                     class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                 >
