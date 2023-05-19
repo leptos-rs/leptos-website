@@ -1,5 +1,5 @@
 pub mod CodeExample;
-pub mod DarkModeToggle;
+//pub mod DarkModeToggle;
 pub mod ExampleServerFunction;
 pub mod ExampleTailwind;
 pub mod FeatureList;

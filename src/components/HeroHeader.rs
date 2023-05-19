@@ -1,4 +1,4 @@
-use crate::components::{DarkModeToggle::DarkModeToggle, SphereLogo::*};
+use crate::components::{SphereLogo::*};
 use leptos::*;
 use leptos_router::*;
 
@@ -68,7 +68,7 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                         alt="GitHub"
                                     />
                                 </a>
-                                <DarkModeToggle/>
+                                //<DarkModeToggle/>
                                 <button on:click=move |_| set_hamburger_menu_open.update(|n| *n = !*n)>
                                     <img
                                         class=" h-6 w-6 block lg:hidden"
