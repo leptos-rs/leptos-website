@@ -6,8 +6,6 @@ cfg_if! {
         use leptos::*;
         use axum::{
             routing::{post, },
-            extract::{Extension, },
-
             Router,
         };
         use leptos_website::app::*;
@@ -33,7 +31,7 @@ cfg_if! {
 
             // Setting this to None means we'll be using cargo-leptos and its env vars
             let conf = get_configuration(None).await.unwrap();
-            let leptos_options = conf.leptos_options;
+            let leptos_options = Arc::new(conf.leptos_options);
             let addr = leptos_options.site_addr;
             let routes = generate_route_list(|cx| view! { cx, <App/> }).await;
 
@@ -42,7 +40,7 @@ cfg_if! {
             .route("/api/*fn_name", post(leptos_axum::handle_server_fns))
             .leptos_routes(leptos_options.clone(), routes, |cx| view! { cx, <App/> } )
             .fallback(file_and_error_handler)
-            .layer(Extension(Arc::new(leptos_options)))
+            .with_state(leptos_options)
             .layer(CompressionLayer::new());
 
             // run our app with hyper
