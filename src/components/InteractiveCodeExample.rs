@@ -2,6 +2,7 @@ use std::time::Duration;
 
 use super::CodeExample::{CodeExampleLayout, CodeExampleMode};
 use leptos::{leptos_dom::helpers::TimeoutHandle, *};
+use leptos_router::use_query_map;
 
 #[component]
 pub fn InteractiveCodeExample(
@@ -174,34 +175,85 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
 fn ExampleComponent(cx: Scope, is_active: ReadSignal<bool>, set_is_active: WriteSignal<bool>) -> impl IntoView {
     let (count, set_count) = create_signal(cx, 0);
     let timeout_handle = store_value(cx, None::<TimeoutHandle>);
+    let query = use_query_map(cx);
+    let interactive = move || query().get("interactive").map(|s| s.as_str()) == Some("tell");
 
     view! { cx,
         <div class="px-2 py-6 h-full w-full flex flex-col justify-center items-center ">
+            <div class="flex justify-around w-full mb-8">
+                <a
+                    class=move || {
+                        if !interactive() {
+                            "border-b-2 dark:text-white dark:border-white"
+                        } else {
+                            "dark:text-white dark:border-white"
+                        }
+                    }
+                    href="?interactive=show"
+                >
+                    "Counter Button"
+                </a>
+                <a
+                    class=move || {
+                        if interactive() {
+                            "border-b-2 dark:text-white dark:border-white"
+                        } else {
+                            "dark:text-white dark:border-white"
+                        }
+                    }
+                    href="?interactive=tell"
+                >
+                    "How does it work?"
+                </a>
+            </div>
             <button
                 class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md \
                 border border-purple dark:border-eggshell disabled:opacity-50"
                 disabled=is_active
                 on:click=move |_| {
                     set_count.update(|n| *n += 1);
-                    set_is_active(true);
-                    if let Some(handle) = timeout_handle.get_value() {
-                        handle.clear();
+                    if interactive() {
+                        set_is_active(true);
+                        if let Some(handle) = timeout_handle.get_value() {
+                            handle.clear();
+                        }
+                        timeout_handle
+                            .set_value(
+                                set_timeout_with_handle(
+                                        move || {
+                                            set_is_active(false);
+                                        },
+                                        Duration::from_millis(750),
+                                    )
+                                    .ok(),
+                            );
                     }
-                    timeout_handle
-                        .set_value(
-                            set_timeout_with_handle(
-                                    move || {
-                                        set_is_active(false);
-                                    },
-                                    Duration::from_millis(750),
-                                )
-                                .ok(),
-                        );
                 }
             >
                 "Click me: "
                 {count}
             </button>
+            {move || {
+                interactive()
+                    .then(|| {
+                        view! { cx,
+                            <ol class="text-sm w-3/4 mt-8 dark:text-white list-decimal">
+                                <li>
+                                    "The component function runs once, creating the DOM elements and setting up the reactive system."
+                                </li>
+                                <li>"Clicking the button fires the " <code>"on:click"</code> " handler. "</li>
+                                <li>
+                                    "The click handler calls " <code>"set_count.update"</code>
+                                    " to increment the count."
+                                </li>
+                                <li>
+                                    "The change to the " <code>"count"</code>
+                                    " signal makes a targeted update to the DOM, changing the value of a single text node without re-rendering anything else."
+                                </li>
+                            </ol>
+                        }
+                    })
+            }}
         </div>
     }
 }
