@@ -11,7 +11,6 @@ cfg_if! {
         use leptos_website::app::*;
         use leptos_website::fallback::file_and_error_handler;
         use leptos_axum::{generate_route_list, LeptosRoutes};
-        use std::sync::Arc;
         use leptos_website::pages::Home::PerformMarkdownCodeToHtml;
         use leptos_website::components::ExampleServerFunction::SaveFavorites;
         use tower_http::{compression::CompressionLayer};

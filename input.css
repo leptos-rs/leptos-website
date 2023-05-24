@@ -2,45 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.code-example-ping,
-.code-example-ping-1,
-.code-example-ping-2 {
-  @apply relative;
-}
-
-.code-example-ping::after,
-.code-example-ping-1::after,
-.code-example-ping-2::after {
-  content: "";
-  animation: ping 0.25s cubic-bezier(0, 0, 0.2, 1) ;
-  @apply absolute inset-0 bg-white mix-blend-difference rounded-md py-2 px-1 z-10;
-  opacity: 0;
-}
-
-@keyframes ping {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  25% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-.code-example-ping-1::after {
-  animation-delay: 250ms;
-}
-
-.code-example-ping-2::after {
-  animation-delay: 500ms;
-}
-
 html {
   font-size: 22px;
   font-family: system-ui, Arial, Helvetica, sans-serif;
@@ -111,9 +72,6 @@ CODE TOKENIZATION STUFF https://crates.io/crates/femark
   font-style: normal;
 
 }
-
-
-
 
 pre i {
   font-style: normal; 
@@ -191,18 +149,4 @@ pre i {
   -o-perspective-origin: 50% 50%;
   perspective-origin: 50% 50%;
 }
-
-.bg-red {
-  background-color: red;
-}
-.bg-orange {
-  background-color: orange;
-}
-.bg-yellow {
-  background-color: yellow;
-}
-
-
-
-
 

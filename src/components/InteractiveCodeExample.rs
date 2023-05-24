@@ -1,7 +1,5 @@
-use std::time::Duration;
-
 use super::CodeExample::{CodeExampleLayout, CodeExampleMode};
-use leptos::{leptos_dom::helpers::TimeoutHandle, *};
+use leptos::*;
 use leptos_router::use_query_map;
 
 #[component]
@@ -11,7 +9,7 @@ pub fn InteractiveCodeExample(
     border: bool,
     background: String,
 ) -> impl IntoView {
-    let (is_active, set_is_active) = create_signal(cx, false);
+    let (phase, set_phase) = create_signal(cx, OnStep::Idle);
 
     view! { cx,
         <CodeExampleLayout
@@ -19,36 +17,64 @@ pub fn InteractiveCodeExample(
             border
             background
             code=CodeExampleMode::View(
-                view! { cx, <CodeView is_active/> }
+                view! { cx, <CodeView phase/> }
                     .into_view(cx),
             )
         >
-            <ExampleComponent is_active set_is_active/>
+            <ExampleComponent phase set_phase/>
         </CodeExampleLayout>
     }
 }
 
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+enum OnStep {
+    Idle,
+    Callback,
+    Setter,
+    Getter,
+}
+
+impl OnStep {
+    fn next(&mut self) {
+        match self {
+            Self::Idle => *self = Self::Callback,
+            Self::Callback => *self = Self::Setter,
+            Self::Setter => *self = Self::Getter,
+            Self::Getter => *self = Self::Idle,
+        }
+    }
+
+    fn prev(&mut self) {
+        match self {
+            Self::Idle => *self = Self::Getter,
+            Self::Callback => *self = Self::Idle,
+            Self::Setter => *self = Self::Callback,
+            Self::Getter => *self = Self::Setter,
+        }
+    }
+}
+
 #[component]
-fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
+fn CodeView(cx: Scope, phase: ReadSignal<OnStep>) -> impl IntoView {
     let callback_class = move || {
-        if is_active() {
-            "code-example-ping"
+        if phase() == OnStep::Callback {
+            "border-2 border-red rounded-sm"
         } else {
-            ""
+            "border-2 border-transparent"
         }
     };
     let setter_class = move || {
-        if is_active() {
-            "code-example-ping-1"
+        if phase() == OnStep::Setter {
+            "border-2 border-red rounded-sm"
         } else {
-            ""
+            "border-2 border-transparent"
         }
     };
     let getter_class = move || {
-        if is_active() {
-            "code-example-ping-2"
+        if phase() == OnStep::Getter {
+            "border-2 border-red rounded-sm"
         } else {
-            ""
+            "border-2 border-transparent"
         }
     };
 
@@ -172,9 +198,12 @@ fn CodeView(cx: Scope, is_active: ReadSignal<bool>) -> impl IntoView {
 }
 
 #[component]
-fn ExampleComponent(cx: Scope, is_active: ReadSignal<bool>, set_is_active: WriteSignal<bool>) -> impl IntoView {
+fn ExampleComponent(
+    cx: Scope,
+    phase: ReadSignal<OnStep>,
+    set_phase: WriteSignal<OnStep>,
+) -> impl IntoView {
     let (count, set_count) = create_signal(cx, 0);
-    let timeout_handle = store_value(cx, None::<TimeoutHandle>);
     let query = use_query_map(cx);
     let interactive = move || query().get("interactive").map(|s| s.as_str()) == Some("tell");
 
@@ -209,30 +238,32 @@ fn ExampleComponent(cx: Scope, is_active: ReadSignal<bool>, set_is_active: Write
             <button
                 class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md \
                 border border-purple dark:border-eggshell disabled:opacity-50"
-                disabled=is_active
+                disabled=move || interactive() && phase() != OnStep::Idle
                 on:click=move |_| {
                     set_count.update(|n| *n += 1);
                     if interactive() {
-                        set_is_active(true);
-                        if let Some(handle) = timeout_handle.get_value() {
-                            handle.clear();
-                        }
-                        timeout_handle
-                            .set_value(
-                                set_timeout_with_handle(
-                                        move || {
-                                            set_is_active(false);
-                                        },
-                                        Duration::from_millis(750),
-                                    )
-                                    .ok(),
-                            );
+                        set_phase.update(OnStep::next);
                     }
                 }
             >
                 "Click me: "
                 {count}
             </button>
+            <Show
+                when=move || interactive() && phase() != OnStep::Idle
+                fallback=|cx| {
+                    view! { cx, <div class="h-8"></div> }
+                }
+            >
+                <div class="h-8 flex justify-around w-full">
+                    <button on:click=move |_| set_phase.update(OnStep::prev)>
+                        "〈 Previous Step"
+                    </button>
+                    <button on:click=move |_| set_phase.update(OnStep::next)>
+                        "Next Step 〉"
+                    </button>
+                </div>
+            </Show>
             {move || {
                 interactive()
                     .then(|| {
@@ -241,13 +272,23 @@ fn ExampleComponent(cx: Scope, is_active: ReadSignal<bool>, set_is_active: Write
                                 <li>
                                     "The component function runs once, creating the DOM elements and setting up the reactive system."
                                 </li>
-                                <li>"Clicking the button fires the " <code>"on:click"</code> " handler. "</li>
                                 <li>
-                                    "The click handler calls " <code>"set_count.update"</code>
-                                    " to increment the count."
+                                    "Clicking the button fires the "
+                                    <code class=move || { if phase() == OnStep::Callback { "border-2 border-red rounded-sm" } else { "border-2 border-transparent" } }>
+                                        "on:click"
+                                    </code> " handler. "
                                 </li>
                                 <li>
-                                    "The change to the " <code>"count"</code>
+                                    "The click handler calls "
+                                    <code class=move || { if phase() == OnStep::Setter { "border-2 border-red rounded-sm" } else { "border-2 border-transparent" } }>
+                                        "set_count.update"
+                                    </code> " to increment the count."
+                                </li>
+                                <li>
+                                    "The change to the "
+                                    <code class=move || { if phase() == OnStep::Getter { "border-2 border-red rounded-sm" } else { "border-2 border-transparent" } }>
+                                        "count"
+                                    </code>
                                     " signal makes a targeted update to the DOM, changing the value of a single text node without re-rendering anything else."
                                 </li>
                             </ol>
