@@ -1,5 +1,6 @@
 use crate::components::{SphereLogo::*};
 use leptos::*;
+use leptos_meta::Style;
 use leptos_router::*;
 
 #[component]
@@ -7,8 +8,9 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
     let (hamburger_menu_open, set_hamburger_menu_open) = create_signal(cx, false);
 
     view! { cx,
+        <Style>{include_str!("./HeroHeader.css")}</Style>
         <div class="max-w-[1920px] mx-auto relative">
-            <div class="relative bg-no-repeat bg-center bg-[length:100%_100%] w-[calc(100%+25px)]  h-full top-0 4xl:top-[-10px] left-[-15px] 4xl:left-0  bg-[url('/images/wave_small.svg')] lg:bg-[url('/images/wave.svg')] drop-shadow-[10px_10px_0px_#190E3825]">
+            <div class="relative bg-no-repeat bg-center bg-[length:100%_100%] w-[calc(100%+25px)]  h-full top-0 4xl:top-[-10px] left-[-15px] 4xl:left-0 hero-header drop-shadow-[10px_10px_0px_#190E3825]">
                 <div class="pl-6 pr-4 md:pl-8 md:pr-6 lg:pl-12 lg:pr-8 pt-2 md:pt-4 lg:pt-8 text-white  w-full ">
                     <div class="flex w-full items-center justify-between max-w-4xl mx-auto">
                         <A href="/">

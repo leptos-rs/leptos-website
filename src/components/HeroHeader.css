@@ -1,0 +1,9 @@
+.hero-header {
+	background-image: url('/images/wave_small.svg');
+}
+
+@media (min-width: 1024px) {
+	.hero-header {
+		background-image: url('/images/wave.svg');
+	}
+}
