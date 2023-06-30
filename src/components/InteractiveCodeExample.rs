@@ -255,7 +255,7 @@ fn ExampleComponent(
                     view! { cx, <div class="h-8"></div> }
                 }
             >
-                <div class="h-8 flex justify-around w-full">
+                <div class="h-8 flex justify-around w-full dark:text-white">
                     <button on:click=move |_| set_phase.update(OnStep::prev)>
                         "〈 Previous Step"
                     </button>
