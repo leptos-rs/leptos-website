@@ -1,6 +1,6 @@
 # Leptos Website
 
-A Repo for the public facing Leptos website. Still a WIP.
+A Repo for the [public facing Leptos website](https://leptos.dev/). Still a WIP.
 
 ## Client Side Rendering
 This example cannot be built as a trunk standalone CSR-only app. Only the server may directly connect to the database.
