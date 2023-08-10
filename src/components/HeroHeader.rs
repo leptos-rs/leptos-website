@@ -1,4 +1,4 @@
-use crate::components::{SphereLogo::*};
+use crate::components::SphereLogo::*;
 use leptos::*;
 use leptos_meta::Style;
 use leptos_router::*;
@@ -23,19 +23,12 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                         <Show when=move || !hamburger_menu_open() fallback=|_| ()>
                             <div class="hidden lg:block">
                                 <div class="flex gap-1 xl:gap-4 justify-center items-center">
-                                    <A
-                                        href="/"
-                                        exact=true
-                                        class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
-                                    >
-                                        "Home"
-                                    </A>
                                     <a
                                         href="https://leptos-rs.github.io/leptos/"
                                         exact=true
                                         class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                     >
-                                        "Docs"
+                                        "Book"
                                     </a>
                                     <a
                                         href="https://codesandbox.io/p/sandbox/leptos-rtfggt?file=%2Fsrc%2Fmain.rs%3A1%2C1"
@@ -49,7 +42,7 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                         exact=true
                                         class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                     >
-                                        "API"
+                                        "Docs"
                                     </a>
                                 </div>
                             </div>
@@ -104,12 +97,6 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                                 >
                                                     "Video"
                                                 </a>
-                                                <a
-                                                    href="https://leptos-rs.github.io/leptos/"
-                                                    class="font-semibold text-lg py-2 px-4 text-purple bg-beige rounded-md shadow-[3px_3px_0px_#7e816e50] hover:saturate-200 transition-all"
-                                                >
-                                                    "Documentation"
-                                                </a>
                                             </div>
                                         </div>
                                         <div class="w-[40%]"></div>
@@ -123,19 +110,12 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                     >
                         <div class="max-w-4xl mx-auto mt-8 pb-16 lg:hidden">
                             <div class="flex flex-col gap-2 ">
-                                <A
-                                    href="/"
-                                    exact=true
-                                    class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
-                                >
-                                    "Home"
-                                </A>
                                 <a
                                     href="https://leptos-rs.github.io/leptos/"
                                     exact=true
                                     class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                 >
-                                    "Documentation"
+                                    "Book"
                                 </a>
                                 <a
                                     href="https://codesandbox.io/p/sandbox/leptos-rtfggt?file=%2Fsrc%2Fmain.rs%3A1%2C1"
@@ -149,7 +129,7 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                     exact=true
                                     class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                 >
-                                    "API"
+                                    "Docs"
                                 </a>
                             </div>
                         </div>
