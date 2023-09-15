@@ -3,12 +3,12 @@ use leptos_meta::Body;
 use leptos_router::ActionForm;
 
 #[server(ToggleDarkMode, "/api")]
-pub async fn toggle_dark_mode(cx: Scope, prefers_dark: bool) -> Result<bool, ServerFnError> {
+pub async fn toggle_dark_mode( prefers_dark: bool) -> Result<bool, ServerFnError> {
     use axum::http::{header::SET_COOKIE, HeaderMap, HeaderValue};
     use leptos_axum::{ResponseOptions, ResponseParts};
 
     let response =
-        use_context::<ResponseOptions>(cx).expect("to have leptos_axum::ResponseOptions provided");
+        use_context::<ResponseOptions>().expect("to have leptos_axum::ResponseOptions provided");
     let mut response_parts = ResponseParts::default();
     let mut headers = HeaderMap::new();
     headers.insert(
@@ -23,7 +23,7 @@ pub async fn toggle_dark_mode(cx: Scope, prefers_dark: bool) -> Result<bool, Ser
 }
 
 #[cfg(not(feature = "ssr"))]
-fn initial_prefers_dark(_cx: Scope) -> Option<bool> {
+fn initial_prefers_dark() -> Option<bool> {
     use wasm_bindgen::JsCast;
 
     let doc = document().unchecked_into::<web_sys::HtmlDocument>();
@@ -40,9 +40,9 @@ fn initial_prefers_dark(_cx: Scope) -> Option<bool> {
 }
 
 #[cfg(feature = "ssr")]
-fn initial_prefers_dark(cx: Scope) -> Option<bool> {
+fn initial_prefers_dark() -> Option<bool> {
     use axum_extra::extract::cookie::CookieJar;
-    use_context::<leptos_axum::RequestParts>(cx).and_then(|req| {
+    use_context::<leptos_axum::RequestParts>().and_then(|req| {
         let cookies = CookieJar::from_headers(&req.headers);
         cookies.get("darkmode").and_then(|v| match v.value() {
             "true" => Some(true),
@@ -53,14 +53,14 @@ fn initial_prefers_dark(cx: Scope) -> Option<bool> {
 }
 
 #[component]
-pub fn DarkModeToggle(cx: Scope) -> impl IntoView {
-    let initial = initial_prefers_dark(cx);
-    let toggle_dark_mode_action = create_server_action::<ToggleDarkMode>(cx);
+pub fn DarkModeToggle() -> impl IntoView {
+    let initial = initial_prefers_dark();
+    let toggle_dark_mode_action = create_server_action::<ToggleDarkMode>();
     // input is `Some(value)` when pending, and `None` if not pending
     let input = toggle_dark_mode_action.input();
     // value contains most recently-returned value
     let value = toggle_dark_mode_action.value();
-    let prefers_dark = create_memo(cx, move |_| {
+    let prefers_dark = create_memo(move |_| {
         match (input(), value()) {
             // if there's some current input, use that optimistically
             (Some(submission), _) => Some(submission.prefers_dark),
@@ -78,7 +78,7 @@ pub fn DarkModeToggle(cx: Scope) -> impl IntoView {
         }
     };
 
-    view! { cx,
+    view! {
         <Body class=move || match prefers_dark() {
             Some(true) => "dark".to_string(),
             Some(false) => "light".to_string(),

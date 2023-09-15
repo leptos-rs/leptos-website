@@ -4,7 +4,6 @@ use crate::pages::Home::perform_markdown_code_to_html;
 
 #[component]
 pub fn CodeExample(
-    cx: Scope,
     children: Children,
     code: String,
     shadow: bool,
@@ -12,12 +11,11 @@ pub fn CodeExample(
     background: String,
 ) -> impl IntoView {
     let code_resource = create_resource(
-        cx,
         || false,
         move |_| perform_markdown_code_to_html(code.clone()),
     );
 
-    view! { cx,
+    view! {
         <CodeExampleLayout
             shadow
             border
@@ -36,7 +34,6 @@ pub enum CodeExampleMode {
 
 #[component]
 pub fn CodeExampleLayout(
-    cx: Scope,
     code: CodeExampleMode,
     shadow: bool,
     border: bool,
@@ -52,40 +49,40 @@ pub fn CodeExampleLayout(
     let border_class = if border { "border" } else { "" };
     let code_children_class = "w-full lg:max-w-md max-w-full p-3 md:p-6 bg-[#0b081a] text-[14px] lg:text-[16px]  text-white  overflow-x-scroll";
 
-    let wasm_loaded = create_rw_signal(cx, false);
-    create_effect(cx, move |_| {
+    let wasm_loaded = create_rw_signal(false);
+    create_effect(move |_| {
         request_animation_frame(move || {
             wasm_loaded.set(true);
         })
     });
 
-    view! { cx,
+    view! {
         <div class=format!(
             "flex flex-col lg:flex-row w-full  max-w-4xl  border-black border-opacity-30 bg-white rounded-md overflow-hidden mx-auto {} {}",
             shadow_class, border_class
         )>
             {match code {
                 CodeExampleMode::Html(code_resource) => {
-                    view! { cx,
+                    view! {
                         <Suspense fallback=move || {
-                            view! { cx, <div class=code_children_class>"fallback"</div> }
+                            view! { <div class=code_children_class>"fallback"</div> }
                         }>
                             {move || {
                                 code_resource
-                                    .read(cx)
+                                    .get()
                                     .map(|res| {
                                         res.map(|code| {
-                                            view! { cx, <div class=code_children_class inner_html=code></div> }
+                                            view! { <div class=code_children_class inner_html=code></div> }
                                         })
                                     })
                             }}
                         </Suspense>
                     }
-                        .into_view(cx)
+                        .into_view()
                 }
                 CodeExampleMode::View(child) => {
-                    view! { cx, <div class=code_children_class>{child}</div> }
-                        .into_view(cx)
+                    view! {<div class=code_children_class>{child}</div> }
+                        .into_view()
                 }
             }}
             <div class="w-full flex flex-col lg:max-w-md max-w-full  border-black dark:border-eggshell border-opacity-30  items-center ">
@@ -99,12 +96,12 @@ pub fn CodeExampleLayout(
                         <span class="w-3 h-3 rounded-full bg-light_blue"></span>
                     </div>
                 </div>
-                {move || (!wasm_loaded()).then(|| view! { cx,
+                {move || (!wasm_loaded()).then(|| view! {
                     <p class="w-full bg-beige text-black p-2 text-center">
                         "Interactive examples may not function as expected before JS/WASM have loaded."
                     </p>
                 })}
-                <div class=format!("w-full h-full {}", background)>{children(cx)}</div>
+                <div class=format!("w-full h-full {}", background)>{children()}</div>
             </div>
         </div>
     }

@@ -27,7 +27,7 @@ pub async fn perform_markdown_code_to_html(markdown: String) -> Result<String, S
 }
 
 #[component]
-pub fn Home(cx: Scope) -> impl IntoView {
+pub fn Home() -> impl IntoView {
     let feature_list_items: Vec<String> = vec![
         String::from("Create full-stack apps that start working immediately and are progressively enhanced with client-side interactivity."),
         String::from("Start projects fast using simple tooling with minimal configuration."),
@@ -36,7 +36,7 @@ pub fn Home(cx: Scope) -> impl IntoView {
         String::from("Sleep well knowing Rust's type safety is protecting your whole app."),
     ];
 
-    view! { cx,
+    view! { 
         <Title text="Home"/>
         <Page>
             <HeroHeader/>

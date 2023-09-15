@@ -4,21 +4,20 @@ use leptos_router::use_query_map;
 
 #[component]
 pub fn InteractiveCodeExample(
-    cx: Scope,
     shadow: bool,
     border: bool,
     background: String,
 ) -> impl IntoView {
-    let (phase, set_phase) = create_signal(cx, OnStep::Idle);
+    let (phase, set_phase) = create_signal( OnStep::Idle);
 
-    view! { cx,
+    view! {
         <CodeExampleLayout
             shadow
             border
             background
             code=CodeExampleMode::View(
-                view! { cx, <CodeView phase/> }
-                    .into_view(cx),
+                view! {  <CodeView phase/> }
+                    .into_view(),
             )
         >
             <ExampleComponent phase set_phase/>
@@ -55,7 +54,7 @@ impl OnStep {
 }
 
 #[component]
-fn CodeView(cx: Scope, phase: ReadSignal<OnStep>) -> impl IntoView {
+fn CodeView( phase: ReadSignal<OnStep>) -> impl IntoView {
     let callback_class = move || {
         if phase() == OnStep::Callback {
             "border-2 border-red rounded-sm"
@@ -78,7 +77,7 @@ fn CodeView(cx: Scope, phase: ReadSignal<OnStep>) -> impl IntoView {
         }
     };
 
-    view! { cx,
+    view! { 
         <pre class="code-block-inner" data-lang="tsx">
             "#"
             <i class="hh8">"["</i>
@@ -199,15 +198,15 @@ fn CodeView(cx: Scope, phase: ReadSignal<OnStep>) -> impl IntoView {
 
 #[component]
 fn ExampleComponent(
-    cx: Scope,
+    
     phase: ReadSignal<OnStep>,
     set_phase: WriteSignal<OnStep>,
 ) -> impl IntoView {
-    let (count, set_count) = create_signal(cx, 0);
-    let query = use_query_map(cx);
+    let (count, set_count) = create_signal( 0);
+    let query = use_query_map();
     let interactive = move || query().get("interactive").map(|s| s.as_str()) == Some("tell");
 
-    view! { cx,
+    view! { 
         <div class="px-2 py-6 h-full w-full flex flex-col justify-center items-center ">
             <div class="flex justify-around w-full mb-8">
                 <a
@@ -251,8 +250,8 @@ fn ExampleComponent(
             </button>
             <Show
                 when=move || interactive() && phase() != OnStep::Idle
-                fallback=|cx| {
-                    view! { cx, <div class="h-8"></div> }
+                fallback=|| {
+                    view! {  <div class="h-8"></div> }
                 }
             >
                 <div class="h-8 flex justify-around w-full dark:text-white">
@@ -267,7 +266,7 @@ fn ExampleComponent(
             {move || {
                 interactive()
                     .then(|| {
-                        view! { cx,
+                        view! { 
                             <ol class="text-sm w-3/4 mt-8 dark:text-white list-decimal">
                                 <li>
                                     "The component function runs once, creating the DOM elements and setting up the reactive system."
