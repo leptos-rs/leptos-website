@@ -1,6 +1,5 @@
 use super::CodeExample::{CodeExampleLayout, CodeExampleMode};
 use leptos::*;
-use leptos_router::use_query_map;
 
 #[component]
 pub fn InteractiveCodeExample(
@@ -197,6 +196,12 @@ fn CodeView(cx: Scope, phase: ReadSignal<OnStep>) -> impl IntoView {
     }
 }
 
+#[derive(Eq, PartialEq, Clone)]
+enum ExampleTabs {
+    Show,
+    Tell,
+}
+
 #[component]
 fn ExampleComponent(
     cx: Scope,
@@ -204,13 +209,18 @@ fn ExampleComponent(
     set_phase: WriteSignal<OnStep>,
 ) -> impl IntoView {
     let (count, set_count) = create_signal(cx, 0);
-    let query = use_query_map(cx);
-    let interactive = move || query().get("interactive").map(|s| s.as_str()) == Some("tell");
+    let (current_tab, set_current_tab) = create_signal(cx, ExampleTabs::Show);
+    let interactive = move || current_tab.get() == ExampleTabs::Tell;
 
     view! { cx,
         <div class="px-2 py-6 h-full w-full flex flex-col justify-center items-center ">
             <div class="flex justify-around w-full mb-8">
-                <a
+            <button
+            on:click=move |_|{
+                set_current_tab.update(|tab| {
+                    *tab =  ExampleTabs::Show
+                })
+            }
                     class=move || {
                         if !interactive() {
                             "border-b-2 dark:text-white dark:border-white"
@@ -218,11 +228,15 @@ fn ExampleComponent(
                             "dark:text-white dark:border-white"
                         }
                     }
-                    href="?interactive=show"
                 >
                     "Counter Button"
-                </a>
-                <a
+                    </button>
+                <button
+                on:click=move |_|{
+                    set_current_tab.update(|tab| {
+                        *tab =  ExampleTabs::Tell
+                    })
+                }
                     class=move || {
                         if interactive() {
                             "border-b-2 dark:text-white dark:border-white"
@@ -230,10 +244,9 @@ fn ExampleComponent(
                             "dark:text-white dark:border-white"
                         }
                     }
-                    href="?interactive=tell"
                 >
                     "How does it work?"
-                </a>
+                </button>
             </div>
             <button
                 class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md \
