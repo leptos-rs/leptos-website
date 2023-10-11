@@ -1,8 +1,8 @@
 use leptos::*;
 
 #[component]
-pub fn FeatureListItem(cx: Scope, text: String) -> impl IntoView {
-    view! { cx,
+pub fn FeatureListItem(text: String) -> impl IntoView {
+    view! {
         <div class="w-14 h-14 table-row">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -26,18 +26,15 @@ pub fn FeatureListItem(cx: Scope, text: String) -> impl IntoView {
 }
 
 #[component]
-pub fn FeatureList(cx: Scope, items: Vec<String>) -> impl IntoView {
+pub fn FeatureList(items: Vec<String>) -> impl IntoView {
     let feature_list_items: Vec<_> = items
         .iter()
         .map(|item_text| {
-            FeatureListItem(
-                cx,
-                FeatureListItemProps {
-                    text: item_text.clone(),
-                },
-            )
+            FeatureListItem(FeatureListItemProps {
+                text: item_text.clone(),
+            })
         })
         .collect();
 
-    view! { cx, <div class="table">{feature_list_items}</div> }
+    view! { <div class="table">{feature_list_items}</div> }
 }

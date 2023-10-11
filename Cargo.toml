@@ -12,10 +12,12 @@ console_log = "1.0.0"
 console_error_panic_hook = "0.1.7"
 futures = "0.3.25"
 cfg-if = "1.0.0"
-leptos = { version = "0.4.8", features = ["nightly"] }
-leptos_axum = { version = "0.4.8", optional = true }
-leptos_meta = { version = "0.4.8", features = ["nightly"] }
-leptos_router = { version = "0.4.8", features = ["nightly"] }
+leptos = { version = "0.5", features = ["nightly", "experimental-islands"] }
+leptos_axum = { version = "0.5", optional = true, features = [
+	"experimental-islands",
+] }
+leptos_meta = { version = "0.5", features = ["nightly"] }
+leptos_router = { version = "0.5", features = ["nightly"] }
 log = "0.4.17"
 simple_logger = "4.0.0"
 serde = { version = "1", features = ["derive"] }

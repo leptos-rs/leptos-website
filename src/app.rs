@@ -4,11 +4,11 @@ use leptos_meta::*;
 use leptos_router::*;
 
 #[component]
-pub fn App(cx: Scope) -> impl IntoView {
+pub fn App() -> impl IntoView {
     let formatter = |text| format!("{text} - Leptos");
-    provide_meta_context(cx);
+    provide_meta_context();
 
-    view! { cx,
+    view! {
         <Html lang="en"/>
         <Stylesheet id="leptos" href="/pkg/leptos_website.css"/>
         <Title formatter/>
@@ -20,8 +20,8 @@ pub fn App(cx: Scope) -> impl IntoView {
             <Routes>
                 <Route
                     path=""
-                    view=|cx| {
-                        view! { cx, <Home/> }
+                    view=|| {
+                        view! { <Home/> }
                     }
                     ssr=SsrMode::Async
                 />

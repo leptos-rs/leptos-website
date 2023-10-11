@@ -3,7 +3,6 @@ use leptos_router::ActionForm;
 
 #[server(SaveFavorites, "/api")]
 pub async fn save_favorites(
-    cx: Scope,
     favorite_cookie_type: String,
     favorite_color: String,
 ) -> Result<String, ServerFnError> {
@@ -16,11 +15,11 @@ pub async fn save_favorites(
 pub const EXAMPLE_SERVER_FUNCTION_CODE: &str = r#"```rust
 #[server(SaveFavorites, "/api")]
 pub async fn save_favorites(
-    cx: Scope,
+    
     favorite_cookie_type: String,
     favorite_color: String,
 ) -> Result<(), ServerFnError> {
-    let pool = get_pool(cx)?;
+    let pool = get_pool()?;
 
     let query = "
         INSERT INTO COOKIES 
@@ -40,10 +39,10 @@ pub async fn save_favorites(
 }
 
 #[component]
-pub fn FavoritesForm(cx: Scope) -> impl IntoView {
-    let favorites = create_server_action::<SaveFavorites>(cx);
+pub fn FavoritesForm() -> impl IntoView {
+    let favorites = create_server_action::<SaveFavorites>();
     let value = favorites.value();
-    view! { cx, 
+    view! { 
         <ActionForm action=favorites>
             <label>
                 "Favorite type of cookie"
@@ -72,10 +71,10 @@ pub fn FavoritesForm(cx: Scope) -> impl IntoView {
 ```"#;
 
 #[component]
-pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
-    let favorites = create_server_action::<SaveFavorites>(cx);
+pub fn ExampleServerFunction() -> impl IntoView {
+    let favorites = create_server_action::<SaveFavorites>();
     let value = favorites.value();
-    view! { cx,
+    view! {
         <ActionForm action=favorites>
             <div class="p-4 sm:p-8">
                 <h2 class="text-2xl font-bold text-black dark:text-eggshell">"Save to database"</h2>
@@ -119,7 +118,7 @@ pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
                             <button class="block max-w-fit mt-1 text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md border border-purple dark:border-eggshell">
                                 "Submit"
                             </button>
-                            <Show when=favorites.pending() fallback=|_| ()>
+                            <Show when=favorites.pending()>
                                 <div class=" text-black dark:text-eggshell h-4 ml-4">
                                     "Loading..."
                                 </div>
@@ -129,7 +128,7 @@ pub fn ExampleServerFunction(cx: Scope) -> impl IntoView {
                 </div>
             </div>
         </ActionForm>
-        <Show when=move || value.with(Option::is_some) fallback=|_| ()>
+        <Show when=move || value.with(Option::is_some)>
             <div class="text-center text-black dark:text-eggshell">{value}</div>
         </Show>
     }

@@ -11,17 +11,11 @@ cfg_if! {
         use leptos_website::app::*;
         use leptos_website::fallback::file_and_error_handler;
         use leptos_axum::{generate_route_list, LeptosRoutes};
-        use leptos_website::pages::Home::PerformMarkdownCodeToHtml;
-        use leptos_website::components::ExampleServerFunction::SaveFavorites;
         use tower_http::{compression::CompressionLayer};
 
         #[tokio::main]
         async fn main() {
             simple_logger::init_with_level(log::Level::Warn).expect("couldn't initialize logging");
-
-            _ = PerformMarkdownCodeToHtml::register();
-            _ = SaveFavorites::register();
-            //_ = ToggleDarkMode::register();
 
             /* sqlx::migrate!()
                 .run(&mut conn)
@@ -32,19 +26,19 @@ cfg_if! {
             let conf = get_configuration(None).await.unwrap();
             let leptos_options = conf.leptos_options;
             let addr = leptos_options.site_addr;
-            let routes = generate_route_list(|cx| view! { cx, <App/> }).await;
+            let routes = generate_route_list(|| view! { <App/> });
 
             // build our application with a route
             let app = Router::new()
             .route("/api/*fn_name", post(leptos_axum::handle_server_fns))
-            .leptos_routes(&leptos_options, routes, |cx| view! { cx, <App/> } )
+            .leptos_routes(&leptos_options, routes, || view! { <App/> } )
             .fallback(file_and_error_handler)
             .with_state(leptos_options)
             .layer(CompressionLayer::new());
 
             // run our app with hyper
             // `axum::Server` is a re-export of `hyper::Server`
-            log!("listening on http://{}", &addr);
+            logging::log!("listening on http://{}", &addr);
             axum::Server::bind(&addr)
                 .serve(app.into_make_service())
                 .await

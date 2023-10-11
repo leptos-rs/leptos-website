@@ -1,13 +1,13 @@
-use crate::components::{SphereLogo::*};
+use crate::components::SphereLogo::*;
 use leptos::*;
 use leptos_meta::Style;
 use leptos_router::*;
 
 #[component]
-pub fn HeroHeader(cx: Scope) -> impl IntoView {
-    let (hamburger_menu_open, set_hamburger_menu_open) = create_signal(cx, false);
+pub fn HeroHeader() -> impl IntoView {
+    let (hamburger_menu_open, set_hamburger_menu_open) = create_signal(false);
 
-    view! { cx,
+    view! {
         <Style>{include_str!("./HeroHeader.css")}</Style>
         <div class="max-w-[1920px] mx-auto relative">
             <div class="relative bg-no-repeat bg-center bg-[length:100%_100%] w-[calc(100%+25px)]  h-full top-0 4xl:top-[-10px] left-[-15px] 4xl:left-0 hero-header drop-shadow-[10px_10px_0px_#190E3825]">
@@ -20,7 +20,7 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                                 alt="Home"
                             />
                         </A>
-                        <Show when=move || !hamburger_menu_open() fallback=|_| ()>
+                        <Show when=move || !hamburger_menu_open()>
                             <div class="hidden lg:block">
                                 <div class="flex gap-1 xl:gap-4 justify-center items-center">
                                     <A
@@ -86,8 +86,8 @@ pub fn HeroHeader(cx: Scope) -> impl IntoView {
                     </div>
                     <Show
                         when=hamburger_menu_open
-                        fallback=|cx| {
-                            view! { cx,
+                        fallback=|| {
+                            view! {
                                 <div class="max-w-4xl mx-auto relative  ">
                                     <div class="flex gap-12 justify-start xl:justify-between items-center pt-12 pb-24 md:py-24">
                                         <div class="md:mt-[-60px] lg:mt-[-60px]">

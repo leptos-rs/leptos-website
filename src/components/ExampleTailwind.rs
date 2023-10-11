@@ -9,8 +9,8 @@ pub enum AlertType {
 
 pub const EXAMPLE_TAILWIND_CODE: &str = r#"```tsx
 #[component]
-pub fn Collections(cx: Scope) -> impl IntoView {
-    view! { cx,
+pub fn Collections() -> impl IntoView {
+    view! { 
         <h2 class="text-2xl font-bold text-black">
             "Collections"
         </h2>
@@ -33,8 +33,8 @@ pub fn Collections(cx: Scope) -> impl IntoView {
 ```"#;
 
 #[component]
-pub fn ExampleTailwind(cx: Scope) -> impl IntoView {
-    view! { cx,
+pub fn ExampleTailwind() -> impl IntoView {
+    view! {
         <div class="p-4 sm:p-8">
             <h2 class="text-2xl font-bold text-black dark:text-eggshell">"Collections"</h2>
             <div class="my-4">

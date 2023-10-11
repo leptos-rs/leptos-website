@@ -10,14 +10,13 @@ struct SpeedStat {
 
 #[component]
 pub fn PercentageBar(
-    cx: Scope,
     color: String,
     percentage: u8,
     background: String,
     color_transparent: String,
     tech_name: String,
 ) -> impl IntoView {
-    view! { cx,
+    view! {
         <div class="text-eggshell flex flex-col lg:items-center lg:flex-row">
             <div class=" mb-2 font-bold lg:hidden">{tech_name}</div>
             <div
@@ -38,8 +37,8 @@ pub fn PercentageBar(
 }
 
 #[component]
-pub fn Label(cx: Scope, tech_name: String) -> impl IntoView {
-    view! { cx,
+pub fn Label(tech_name: String) -> impl IntoView {
+    view! {
         <div class="text-purple dark:text-eggshell">
             <div class="h-10 text-xl flex items-center justify-end">{tech_name}</div>
         </div>
@@ -47,7 +46,7 @@ pub fn Label(cx: Scope, tech_name: String) -> impl IntoView {
 }
 
 #[component]
-pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
+pub fn SpeedStats(shadow: bool, border: bool) -> impl IntoView {
     let shadow_class = if shadow {
         "shadow-[10px_10px_0px_#190E3825]"
     } else {
@@ -94,14 +93,14 @@ pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
         },
     ];
 
-    view! { cx,
+    view! {
         <div class="2xl:ml-[-100px]">
             <div class="flex max-w-4xl mx-auto">
                 <div class="hidden lg:flex flex-col gap-4 py-8 pr-4 pl-0 mt-0.5 font-bold ">
                     {labels
                         .iter()
                         .map(|row| {
-                            view! { cx, <Label tech_name=row.name.clone()/> }
+                            view! { <Label tech_name=row.name.clone()/> }
                         })
                         .collect::<Vec<_>>()}
                 </div>
@@ -112,7 +111,7 @@ pub fn SpeedStats(cx: Scope, shadow: bool, border: bool) -> impl IntoView {
                     {labels
                         .iter()
                         .map(|row| {
-                            view! { cx,
+                            view! {
                                 <PercentageBar
                                     tech_name=row.name.clone()
                                     color=row.color.clone()
