@@ -69,11 +69,19 @@ pub fn Home() -> impl IntoView {
                     "Build websites and apps from self-contained components with reactive state management that's easy to use."
                 </p>
                 <div class="mt-6">
-                    <InteractiveCodeExample
-                        shadow=true
-                        border=true
-                        background="bg-[#F3F4F6] dark:bg-black".to_string()
-                    />
+                    <InteractiveCodeExample>
+                        <CodeExampleLayout
+                            shadow=true
+                            border=true
+                            background="bg-[#F3F4F6] dark:bg-black".to_string()
+                            code=CodeExampleMode::View(
+                                view! { <CodeView/> }
+                                    .into_view(),
+                            )
+                        >
+                            <ExampleComponent/>
+                        </CodeExampleLayout>
+                    </InteractiveCodeExample>
                 </div>
                 <p class="max-w-[70ch] mt-8 lg:mx-auto lg:text-center  text-purple dark:text-eggshell">
                     "Leptos's fine-grained reactive signals make targeted updates to the DOM when your component's state changes, keeping your app responsive to user input."

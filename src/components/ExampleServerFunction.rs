@@ -15,7 +15,6 @@ pub async fn save_favorites(
 pub const EXAMPLE_SERVER_FUNCTION_CODE: &str = r#"```rust
 #[server(SaveFavorites, "/api")]
 pub async fn save_favorites(
-    
     favorite_cookie_type: String,
     favorite_color: String,
 ) -> Result<(), ServerFnError> {
@@ -60,17 +59,17 @@ pub fn FavoritesForm() -> impl IntoView {
             </label>
             <input type="submit"/>
         </ActionForm>
-        <Show when=favorites.pending() fallback=|_| ()>
+        <Show when=favorites.pending()>
             <div>"Loading..."</div>
         </Show>
-        <Show when=move || value.with(Option::is_some) fallback=|_| ()>
+        <Show when=move || value.with(Option::is_some)>
             <div>{value}</div>
         </Show>
     }
 }
 ```"#;
 
-#[component]
+#[island]
 pub fn ExampleServerFunction() -> impl IntoView {
     let favorites = create_server_action::<SaveFavorites>();
     let value = favorites.value();

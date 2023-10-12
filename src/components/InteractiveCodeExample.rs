@@ -1,24 +1,10 @@
-use super::CodeExample::{CodeExampleLayout, CodeExampleMode};
 use leptos::*;
-use leptos_router::use_query_map;
 
-#[component]
-pub fn InteractiveCodeExample(shadow: bool, border: bool, background: String) -> impl IntoView {
-    let (phase, set_phase) = create_signal(OnStep::Idle);
+#[island]
+pub fn InteractiveCodeExample(children: Children) -> impl IntoView {
+    provide_context(RwSignal::new(OnStep::Idle));
 
-    view! {
-        <CodeExampleLayout
-            shadow
-            border
-            background
-            code=CodeExampleMode::View(
-                view! { <CodeView phase/> }
-                    .into_view(),
-            )
-        >
-            <ExampleComponent phase set_phase/>
-        </CodeExampleLayout>
-    }
+    children()
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
@@ -49,8 +35,9 @@ impl OnStep {
     }
 }
 
-#[component]
-fn CodeView(phase: ReadSignal<OnStep>) -> impl IntoView {
+#[island]
+pub fn CodeView() -> impl IntoView {
+    let phase = expect_context::<RwSignal<OnStep>>().read_only();
     let callback_class = move || {
         if phase() == OnStep::Callback {
             "border-2 border-red rounded-sm"
@@ -85,10 +72,7 @@ fn CodeView(phase: ReadSignal<OnStep>) -> impl IntoView {
             <i class="hh15">"fn"</i>
             " "
             <i class="hh13">"Button"</i>
-            <i class="hh8">"("</i>
-            ": "
-            <i class="hh13">"Scope"</i>
-            <i class="hh8">")"</i>
+            <i class="hh8">"()"</i>
             " "
             <i class="hh5">"-"</i>
             <i class="hh5">">"</i>
@@ -185,16 +169,16 @@ fn CodeView(phase: ReadSignal<OnStep>) -> impl IntoView {
     }
 }
 
-#[component]
-fn ExampleComponent(phase: ReadSignal<OnStep>, set_phase: WriteSignal<OnStep>) -> impl IntoView {
+#[island]
+pub fn ExampleComponent() -> impl IntoView {
+    let (phase, set_phase) = expect_context::<RwSignal<OnStep>>().split();
     let (count, set_count) = create_signal(0);
-    let query = use_query_map();
-    let interactive = move || query().get("interactive").map(|s| s.as_str()) == Some("tell");
+    let (interactive, set_interactive) = create_signal(false);
 
     view! {
         <div class="px-2 py-6 h-full w-full flex flex-col justify-center items-center ">
             <div class="flex justify-around w-full mb-8">
-                <a
+                <button
                     class=move || {
                         if !interactive() {
                             "border-b-2 dark:text-white dark:border-white"
@@ -202,11 +186,11 @@ fn ExampleComponent(phase: ReadSignal<OnStep>, set_phase: WriteSignal<OnStep>) -
                             "dark:text-white dark:border-white"
                         }
                     }
-                    href="?interactive=show"
+                    on:click=move |_| set_interactive(false)
                 >
                     "Counter Button"
-                </a>
-                <a
+                </button>
+                <button
                     class=move || {
                         if interactive() {
                             "border-b-2 dark:text-white dark:border-white"
@@ -214,10 +198,10 @@ fn ExampleComponent(phase: ReadSignal<OnStep>, set_phase: WriteSignal<OnStep>) -
                             "dark:text-white dark:border-white"
                         }
                     }
-                    href="?interactive=tell"
+                    on:click=move |_| set_interactive(true)
                 >
                     "How does it work?"
-                </a>
+                </button>
             </div>
             <button
                 class="text-lg py-2 px-4 text-purple dark:text-eggshell rounded-md \

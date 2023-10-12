@@ -18,13 +18,7 @@ pub fn App() -> impl IntoView {
         />
         <Router>
             <Routes>
-                <Route
-                    path=""
-                    view=|| {
-                        view! { <Home/> }
-                    }
-                    ssr=SsrMode::Async
-                />
+                <Route path="" view=Home ssr=SsrMode::Async/>
             </Routes>
         </Router>
         <script defer data-domain="leptos.dev" src="https://plausible.io/js/script.js"></script>

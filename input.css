@@ -8,6 +8,10 @@ html {
   background-color: #F2F8FA;
 }
 
+leptos-island {
+  display: contents;
+}
+
 /*
 CODE TOKENIZATION STUFF https://crates.io/crates/femark
 

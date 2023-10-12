@@ -49,13 +49,6 @@ pub fn CodeExampleLayout(
     let border_class = if border { "border" } else { "" };
     let code_children_class = "w-full lg:max-w-md max-w-full p-3 md:p-6 bg-[#0b081a] text-[14px] lg:text-[16px]  text-white  overflow-x-scroll";
 
-    let wasm_loaded = create_rw_signal(false);
-    create_effect(move |_| {
-        request_animation_frame(move || {
-            wasm_loaded.set(true);
-        })
-    });
-
     view! {
         <div class=format!(
             "flex flex-col lg:flex-row w-full  max-w-4xl  border-black border-opacity-30 bg-white rounded-md overflow-hidden mx-auto {} {}",
@@ -93,11 +86,6 @@ pub fn CodeExampleLayout(
                         <span class="w-3 h-3 rounded-full bg-light_blue"></span>
                     </div>
                 </div>
-                {move || (!wasm_loaded()).then(|| view! {
-                    <p class="w-full bg-beige text-black p-2 text-center">
-                        "Interactive examples may not function as expected before JS/WASM have loaded."
-                    </p>
-                })}
                 <div class=format!("w-full h-full {}", background)>{children()}</div>
             </div>
         </div>
