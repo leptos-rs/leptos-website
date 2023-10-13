@@ -22,22 +22,15 @@ pub fn HeroHeader() -> impl IntoView {
                             <ShowWhenOpen is=false>
                                 <div class="hidden lg:block">
                                     <div class="flex gap-1 xl:gap-4 justify-center items-center">
-                                        <A
-                                            href="/"
-                                            exact=true
-                                            class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
-                                        >
-                                            "Home"
-                                        </A>
                                         <a
                                             href="https://leptos-rs.github.io/leptos/"
                                             exact=true
                                             class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                         >
-                                            "Docs"
+                                            "Book"
                                         </a>
                                         <a
-                                            href="https://codesandbox.io/p/sandbox/leptos-rtfggt?file=%2Fsrc%2Fmain.rs%3A1%2C1"
+                                            href="https://codesandbox.io/p/sandbox/leptos-playground-mpk3dr"
                                             exact=true
                                             class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                         >
@@ -48,7 +41,7 @@ pub fn HeroHeader() -> impl IntoView {
                                             exact=true
                                             class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                         >
-                                            "API"
+                                            "Docs"
                                         </a>
                                     </div>
                                 </div>
