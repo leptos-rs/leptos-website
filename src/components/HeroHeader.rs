@@ -24,24 +24,27 @@ pub fn HeroHeader() -> impl IntoView {
                                     <div class="flex gap-1 xl:gap-4 justify-center items-center">
                                         <a
                                             href="https://leptos-rs.github.io/leptos/"
-                                            exact=true
                                             class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                         >
                                             "Book"
                                         </a>
                                         <a
                                             href="https://codesandbox.io/p/sandbox/leptos-playground-mpk3dr"
-                                            exact=true
                                             class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                         >
                                             "Playground"
                                         </a>
                                         <a
                                             href="https://docs.rs/leptos/latest/leptos/"
-                                            exact=true
                                             class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                         >
                                             "Docs"
+                                        </a>
+                                        <a
+                                            href="https://leptos.square.site/"
+                                            class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
+                                        >
+                                            "Store"
                                         </a>
                                     </div>
                                 </div>
@@ -68,34 +71,30 @@ pub fn HeroHeader() -> impl IntoView {
                         </div>
                         <ShowWhenOpen is=true>
                             <div class="max-w-4xl mx-auto mt-8 pb-16 lg:hidden">
-                                <div class="flex flex-col gap-2 ">
-                                    <A
-                                        href="/"
-                                        exact=true
-                                        class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
-                                    >
-                                        "Home"
-                                    </A>
+                                <div class="flex flex-col gap-2">
                                     <a
                                         href="https://leptos-rs.github.io/leptos/"
-                                        exact=true
                                         class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                     >
-                                        "Documentation"
+                                        "Book"
                                     </a>
                                     <a
-                                        href="https://codesandbox.io/p/sandbox/leptos-rtfggt?file=%2Fsrc%2Fmain.rs%3A1%2C1"
-                                        exact=true
+                                        href="https://codesandbox.io/p/sandbox/leptos-playground-mpk3dr"
                                         class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                     >
                                         "Playground"
                                     </a>
                                     <a
                                         href="https://docs.rs/leptos/latest/leptos/"
-                                        exact=true
                                         class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                     >
-                                        "API"
+                                        "Docs"
+                                    </a>
+                                    <a
+                                        href="https://leptos.square.site/"
+                                        class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
+                                    >
+                                        "Store"
                                     </a>
                                 </div>
                             </div>
