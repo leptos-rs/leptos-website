@@ -132,7 +132,7 @@ pub fn Home() -> impl IntoView {
                 </p>
                 <div class="w-full flex justify-center pb-16">
                     <a
-                        href="https://leptos-rs.github.io/leptos/"
+                        href="https://book.leptos.dev"
                         class="font-semibold text-eggshell text-2xl px-8 py-5  bg-gradient-to-r from-dark_blue to-purple rounded-md shadow-[3px_3px_0px_#0d0b29] hover:saturate-200 transition-all"
                     >
                         "Get Started"

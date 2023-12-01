@@ -23,7 +23,7 @@ pub fn HeroHeader() -> impl IntoView {
                                 <div class="hidden lg:block">
                                     <div class="flex gap-1 xl:gap-4 justify-center items-center">
                                         <a
-                                            href="https://leptos-rs.github.io/leptos/"
+                                            href="https://book.leptos.dev"
                                             class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                         >
                                             "Book"
@@ -73,7 +73,7 @@ pub fn HeroHeader() -> impl IntoView {
                             <div class="max-w-4xl mx-auto mt-8 pb-16 lg:hidden">
                                 <div class="flex flex-col gap-2">
                                     <a
-                                        href="https://leptos-rs.github.io/leptos/"
+                                        href="https://book.leptos.dev"
                                         class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                     >
                                         "Book"
@@ -117,7 +117,7 @@ pub fn HeroHeader() -> impl IntoView {
                                                 "Video"
                                             </a>
                                             <a
-                                                href="https://leptos-rs.github.io/leptos/"
+                                                href="https://book.leptos.dev"
                                                 class="font-semibold text-lg py-2 px-4 text-purple bg-beige rounded-md shadow-[3px_3px_0px_#7e816e50] hover:saturate-200 transition-all"
                                             >
                                                 "Documentation"
