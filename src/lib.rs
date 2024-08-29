@@ -5,6 +5,7 @@ pub mod app;
 pub mod components;
 pub mod error_template;
 pub mod errors;
+#[cfg(feature = "ssr")]
 pub mod fallback;
 pub mod pages;
 
