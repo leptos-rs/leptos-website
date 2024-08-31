@@ -1,6 +1,6 @@
 use crate::components::Footer::*;
 // use crate::components::Header::*;
-use leptos::*;
+use leptos::prelude::*;
 
 #[component]
 pub fn Page(children: Children) -> impl IntoView {

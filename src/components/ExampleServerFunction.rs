@@ -1,5 +1,4 @@
-use leptos::*;
-use leptos_router::ActionForm;
+use leptos::prelude::*;
 
 #[server(SaveFavorites, "/api")]
 pub async fn save_favorites(
@@ -71,7 +70,7 @@ pub fn FavoritesForm() -> impl IntoView {
 
 #[island]
 pub fn ExampleServerFunction() -> impl IntoView {
-    let favorites = create_server_action::<SaveFavorites>();
+    let favorites = ServerAction::<SaveFavorites>::new();
     let value = favorites.value();
     view! {
         <ActionForm action=favorites>

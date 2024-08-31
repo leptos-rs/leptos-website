@@ -6,7 +6,7 @@ use crate::components::HeroHeader::*;
 use crate::components::InteractiveCodeExample::*;
 use crate::components::Page::*;
 use crate::components::SpeedStats::*;
-use leptos::*;
+use leptos::prelude::*;
 use leptos_meta::*;
 
 #[server(PerformMarkdownCodeToHtml, "/api", "GetJSON")]
@@ -76,7 +76,7 @@ pub fn Home() -> impl IntoView {
                             background="bg-[#F3F4F6] dark:bg-black".to_string()
                             code=CodeExampleMode::View(
                                 view! { <CodeView/> }
-                                    .into_view(),
+                                    .into_any(),
                             )
                         >
                             <ExampleComponent/>

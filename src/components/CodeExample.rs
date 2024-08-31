@@ -1,4 +1,5 @@
-use leptos::*;
+use leptos::{either::Either, prelude::*};
+use tachys::view::any_view::AnyView;
 
 use crate::pages::Home::perform_markdown_code_to_html;
 
@@ -10,7 +11,7 @@ pub fn CodeExample(
     border: bool,
     background: String,
 ) -> impl IntoView {
-    let code_resource = create_resource(
+    let code_resource = Resource::new(
         || false,
         move |_| perform_markdown_code_to_html(code.clone()),
     );
@@ -26,10 +27,9 @@ pub fn CodeExample(
     }
 }
 
-#[derive(Clone)]
 pub enum CodeExampleMode {
-    Html(Resource<bool, Result<String, ServerFnError>>),
-    View(View),
+    Html(Resource<Result<String, ServerFnError>>),
+    View(AnyView<Dom>),
 }
 
 #[component]
@@ -56,23 +56,20 @@ pub fn CodeExampleLayout(
         )>
             {match code {
                 CodeExampleMode::Html(code_resource) => {
-                    view! {
+                    let code_view = move || Suspend::new(async move {
+                        let code = code_resource.await.unwrap_or_default();
+                        view! { <div class=code_children_class inner_html=code></div> }
+                    });
+                    Either::Left(view! {
                         <Suspense fallback=move || {
                             view! { <div class=code_children_class>"fallback"</div> }
                         }>
-                            {move || {
-                                code_resource
-                                    .and_then(|code| {
-                                        view! { <div class=code_children_class inner_html=code></div> }
-                                    })
-                            }}
+                            {code_view}
                         </Suspense>
-                    }
-                        .into_view()
+                    })
                 }
                 CodeExampleMode::View(child) => {
-                    view! { <div class=code_children_class>{child}</div> }
-                        .into_view()
+                    Either::Right(view! { <div class=code_children_class>{child}</div> })
                 }
             }}
             <div class="w-full flex flex-col lg:max-w-md max-w-full  border-black dark:border-eggshell border-opacity-30  items-center ">

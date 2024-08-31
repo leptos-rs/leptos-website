@@ -1,7 +1,7 @@
 use crate::components::SphereLogo::*;
-use leptos::*;
+use leptos::prelude::*;
 use leptos_meta::Style;
-use leptos_router::*;
+use leptos_router::components::A;
 
 #[component]
 pub fn HeroHeader() -> impl IntoView {

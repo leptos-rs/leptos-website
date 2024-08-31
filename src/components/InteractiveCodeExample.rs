@@ -1,4 +1,4 @@
-use leptos::*;
+use leptos::prelude::*;
 
 #[island]
 pub fn InteractiveCodeExample(children: Children) -> impl IntoView {
@@ -60,9 +60,8 @@ pub fn CodeView() -> impl IntoView {
         }
     };
 
-    view! {
-        <pre class="code-block-inner" data-lang="tsx">
-            "#"
+    let child1 = view! {
+    "#"
             <i class="hh8">"["</i>
             <i class="hh15">"component"</i>
             <i class="hh8">"]"</i>
@@ -85,7 +84,10 @@ pub fn CodeView() -> impl IntoView {
             "\n  "
             <i class="hh6">"let"</i>
             " "
-            <i class="hh8">"("</i>
+
+    };
+    let child2 = view! {
+        <i class="hh8">"("</i>
             <span class=getter_class>
                 <i class="hh17">"count"</i>
             </span>
@@ -94,11 +96,11 @@ pub fn CodeView() -> impl IntoView {
             <span class=setter_class>
                 <i class="hh17">"set_count"</i>
             </span>
-            <i class="hh8">")"</i>
+        <i class="hh8">")"</i>
             " "
             <i class="hh5">"="</i>
             " "
-            <i class="hh6">"create_signal"</i>
+            <i class="hh6">"signal"</i>
             <i class="hh8">"("</i>
             "0"
             <i class="hh8">")"</i>
@@ -117,10 +119,13 @@ pub fn CodeView() -> impl IntoView {
             <span class=callback_class>
                 <i class="hh15">"click"</i>
             </span>
-            <i class="hh5">"="</i>
+
+    };
+    let child3 = view! {
+        <i class="hh5">"="</i>
             <i class="hh15">"move"</i>
             " "
-            <i class="hh5">"|"</i>
+        <i class="hh5">"|"</i>
             <i class="hh15">"_"</i>
             <i class="hh5">"|"</i>
             " "
@@ -144,27 +149,38 @@ pub fn CodeView() -> impl IntoView {
             "1"
             <i class="hh8">")"</i>
             <i class="hh9">";"</i>
-            "\n      "
+
+    };
+    let child4 = view! {
+                    "\n      "
             <i class="hh8">"}"</i>
             "\n    "
-            <i class="hh5">">"</i>
-            "\n      "
-            "\"Click me: \""
-            "\n      "
-            <i class="hh8">"{"</i>
-            <span class=getter_class>
-                <i class="hh17">"count"</i>
-            </span>
-            <i class="hh8">"}"</i>
-            "\n    "
-            <i class="hh5">"<"</i>
-            <i class="hh5">"/"</i>
-            <i class="hh12">"button"</i>
-            <i class="hh5">">"</i>
-            "\n  "
-            <i class="hh8">"}"</i>
-            "\n"
-            <i class="hh8">"}"</i>
+    <i class="hh5">">"</i>
+                "\n      "
+                "\"Click me: \""
+                "\n      "
+                <i class="hh8">"{"</i>
+                <span class=getter_class>
+                    <i class="hh17">"count"</i>
+                </span>
+                <i class="hh8">"}"</i>
+                "\n    "
+                <i class="hh5">"<"</i>
+                <i class="hh5">"/"</i>
+                <i class="hh12">"button"</i>
+                <i class="hh5">">"</i>
+                "\n  "
+                <i class="hh8">"}"</i>
+                "\n"
+                <i class="hh8">"}"</i>
+        };
+
+    view! {
+        <pre class="code-block-inner" data-lang="tsx">
+            {child1}
+            {child2}
+            {child3}
+            {child4}
         </pre>
     }
 }
@@ -172,8 +188,8 @@ pub fn CodeView() -> impl IntoView {
 #[island]
 pub fn ExampleComponent() -> impl IntoView {
     let (phase, set_phase) = expect_context::<RwSignal<OnStep>>().split();
-    let (count, set_count) = create_signal(0);
-    let (interactive, set_interactive) = create_signal(false);
+    let (count, set_count) = signal(0);
+    let (interactive, set_interactive) = signal(false);
 
     view! {
         <div class="px-2 py-6 h-full w-full flex flex-col justify-center items-center ">

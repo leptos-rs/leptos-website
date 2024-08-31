@@ -12,12 +12,13 @@ console_log = "1.0.0"
 console_error_panic_hook = "0.1.7"
 futures = "0.3.25"
 cfg-if = "1.0.0"
-leptos = { version = "0.6.14", features = ["nightly", "experimental-islands"] }
-leptos_axum = { version = "0.6.14", optional = true, features = [
+leptos = { version = "0.7.0-beta", features = [
+	"nightly",
 	"experimental-islands",
 ] }
-leptos_meta = { version = "0.6.14", features = ["nightly"] }
-leptos_router = { version = "0.6.14", features = ["nightly"] }
+leptos_axum = { version = "0.7.0-beta", optional = true }
+leptos_meta = { version = "0.7.0-beta" }
+leptos_router = { version = "0.7.0-beta", features = ["nightly"] }
 log = "0.4.17"
 simple_logger = "5.0.0"
 serde = { version = "1", features = ["derive"] }
@@ -40,14 +41,7 @@ web-sys = { version = "0.3", optional = true, features = [
 ] }
 
 [features]
-default = ["csr"]
-csr = ["leptos/csr", "leptos_meta/csr", "leptos_router/csr"]
-hydrate = [
-	"leptos/hydrate",
-	"leptos_meta/hydrate",
-	"leptos_router/hydrate",
-	"dep:web-sys",
-]
+hydrate = ["leptos/hydrate", "dep:web-sys"]
 ssr = [
 	"dep:axum",
 	"dep:tower",
