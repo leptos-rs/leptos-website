@@ -38,7 +38,7 @@ pub fn App() -> impl IntoView {
         <Title formatter/>
         <Router>
             <Routes fallback=|| "Not found.">
-                <Route path=path!("") view=Home ssr=SsrMode::Async/>
+                <Route path=path!("") view=Home ssr=SsrMode::Static/>
             </Routes>
         </Router>
         <script defer data-domain="leptos.dev" src="https://plausible.io/js/script.js"></script>
