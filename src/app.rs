@@ -3,7 +3,7 @@ use leptos::prelude::*;
 use leptos_meta::*;
 use leptos_router::{
     components::{Route, Router, Routes},
-    path, SsrMode, StaticSegment,
+    path, SsrMode, static_routes::StaticRoute
 };
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
@@ -38,7 +38,7 @@ pub fn App() -> impl IntoView {
         <Title formatter/>
         <Router>
             <Routes fallback=|| "Not found.">
-                <Route path=path!("") view=Home ssr=SsrMode::Static/>
+                <Route path=path!("") view=Home ssr=SsrMode::Static(StaticRoute::new())/>
             </Routes>
         </Router>
         <script defer data-domain="leptos.dev" src="https://plausible.io/js/script.js"></script>

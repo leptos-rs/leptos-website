@@ -1,5 +1,4 @@
 use leptos::{either::Either, prelude::*};
-use tachys::view::any_view::AnyView;
 
 use crate::pages::Home::perform_markdown_code_to_html;
 
@@ -29,7 +28,7 @@ pub fn CodeExample(
 
 pub enum CodeExampleMode {
     Html(Resource<Result<String, ServerFnError>>),
-    View(AnyView<Dom>),
+    View(AnyView),
 }
 
 #[component]

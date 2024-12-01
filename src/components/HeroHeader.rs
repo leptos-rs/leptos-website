@@ -29,7 +29,7 @@ pub fn HeroHeader() -> impl IntoView {
                                             "Book"
                                         </a>
                                         <a
-                                            href="https://codesandbox.io/p/sandbox/leptos-playground-mpk3dr"
+                                            href="https://codesandbox.io/p/devbox/playground-j23dz7?file=%2Fsrc%2Fmain.rs"
                                             class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                         >
                                             "Playground"
@@ -79,7 +79,7 @@ pub fn HeroHeader() -> impl IntoView {
                                         "Book"
                                     </a>
                                     <a
-                                        href="https://codesandbox.io/p/sandbox/leptos-playground-mpk3dr"
+                                        href="https://codesandbox.io/p/devbox/playground-j23dz7?file=%2Fsrc%2Fmain.rs"
                                         class="font-bold transition-all  text-white  aria-[current]:bg-purple  hover:bg-purple hover:bg-opacity-50 px-4 py-2 rounded-md "
                                     >
                                         "Playground"
