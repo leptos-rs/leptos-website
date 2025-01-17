@@ -42,7 +42,7 @@ pub fn ExampleTailwind() -> impl IntoView {
                     <div class="max-w-sm h-40 overflow-hidden rounded-lg">
                         <img
                             loading="lazy"
-                            src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
+                            src="/images/home-page-02-edition-01.jpg"
                             class="h-full w-full object-cover object-center"
                             alt=""
                         />

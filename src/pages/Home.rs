@@ -5,7 +5,6 @@ use crate::components::FeatureList::*;
 use crate::components::HeroHeader::*;
 use crate::components::InteractiveCodeExample::*;
 use crate::components::Page::*;
-use crate::components::SpeedStats::*;
 use leptos::prelude::*;
 use leptos_meta::*;
 
